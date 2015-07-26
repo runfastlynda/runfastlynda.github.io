@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>runfastlynda</title>
+        <meta charset="utf-8" />
+        <title>runfastlynda</title>
+        <link rel="stylesheet" type="text/css" href="game.css">
+        <script type="text/javascript">
+            var se = null,time=20,you=0,ji=0,arr=new Array('石头','布','剪子');
+            function p(n){
+                you = n;
+                document.getElementById('you').innerHTML=s(n);
+                document.getElementById('st').disabled=true;
+                document.getElementById('mb').disabled=true;
+                document.getElementById('jz').disabled=true;
+                document.getElementById('cu').innerHTML = '...';
+                se = setInterval('t()',50);
+            }
+            /*function agin(){
+                document.getElementById('st').disabled=false;
+                document.getElementById('mb').disabled=false;
+                document.getElementById('jz').disabled=false;       
+                document.getElementById('la').style.display = 'none';
+                document.getElementById('you').innerHTML = '';      
+                document.getElementById('pc').innerHTML = '';
+                document.getElementById('cu').innerHTML = '';
+                document.getElementById('you').innerHTML= '请选择';        
+            }*/
+            function bt(){
+                var pc = Math.floor(Math.random() * 3 + 1);
+                document.getElementById('pc').innerHTML = s(pc);
+                var str='';
+                if(pc==you){
+                    str += '平局!';    
+                }else{
+                    var b = pc-you;
+                    if(b>0){
+                        if(b==1){
+                            str += '电脑赢!';   
+                        }else{
+                            str += '你赢啦!'; 
+                            ji++; 
+                        }               
+                    }else{
+                        b = b*-1;   
+                        if(b==1){
+                            str += '你赢啦!'; 
+                            ji++;  
+                        }else{
+                            str += '电脑赢!';   
+                        }   
+                    }       
+                }
+                document.getElementById('la').style.display = 'block';
+                document.getElementById('cu').innerHTML = str;
+                document.getElementById('fen').innerHTML = ji;
+            }
+
+            function t(){
+                if(time>0){
+                    document.getElementById('pc').innerHTML = arr[time%3];
+                    time--;
+                }else{
+                    clearInterval(se);
+                    se = null;
+                    time = 20;
+                    bt();
+                }
+            }
+            function s(n){
+                if(n==1){
+                    return '石头';    
+                }else if(n==2){
+                    return '布';    
+                }else{
+                    return '剪子';    
+                }
+            }
+        
+        </script>
+    </head>
+    <body>
+        <div class="lynda">
+            <h1 >石头剪子布大赛</h1>
+            <div class="weixin"><img src="http://7xklz5.com1.z0.glb.clouddn.com/about.3.jpg" >小白变怪兽</div>
+            <div class="user">
+                <div class="header">
+                    <h2>你出什么？<span id="you">请选择</span></h2>
+                </div>
+                <div class="tip1">
+                    <h2>电脑出？<span style="" id="pc"></span></h2>
+                </div>
+                <div class="clear"></div>
+            </div>
+                <div class="cai">
+                    <div class="left">
+                        <img id="st" src="http://7xklz5.com1.z0.glb.clouddn.com/qt.1.png" alt="" onclick="p(1);"/>
+                    </div>
+                    <div class="main">
+                        <img id="mb" img src="http://7xklz5.com1.z0.glb.clouddn.com/bu.1.png" alt="" onclick="p(2);" />             
+                    </div>
+                    <div class="right">
+                        <img id="jz" src="http://7xklz5.com1.z0.glb.clouddn.com/jz.1.png" alt="" onclick="p(3);" />           
+                    </div>
+                    <div class="clear"> </div>
+                </div>
+                <p>请点击图片进行选择</p>
+            <div id="cu"></div>
+            <div id="la">
+                <p>你已经赢了<span id="fen">0</span>局啦！</p>
+            </div>
+        </div>
+    </body>
+</html
