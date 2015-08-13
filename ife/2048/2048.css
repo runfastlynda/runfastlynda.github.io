@@ -52,14 +52,14 @@ header p{
 .grid-cell{
     width:100px;
     height:100px;
-    border-radius: 6px;
+    border-radius: 2px;
     background-color:#ccc0b3;
 
     position: absolute;
 }
 
 .number-cell{
-    border-radius: 6px;
+    border-radius: 2px;
 
     font-family: Arial;
     font-weight:bold;
