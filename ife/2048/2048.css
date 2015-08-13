@@ -1,4 +1,7 @@
-
+body { 
+    overflow-x:hidden; 
+    overflow-y:hidden; 
+}
 header{
     display:block;
     margin:0 auto;

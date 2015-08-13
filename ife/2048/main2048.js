@@ -173,10 +173,6 @@ document.addEventListener('touchend',function(event){
     var deltax = endx - startx;
     var deltay = endy - starty;
 
-    var containerY = $('#grid-container').offset().top;
-    if(containerY>=startY)
-        return true;
-
     if( Math.abs( deltax ) < 0.3*documentWidth && Math.abs( deltay ) < 0.3*documentWidth )
         return;
 
