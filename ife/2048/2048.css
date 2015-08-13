@@ -14,6 +14,7 @@ header h1{
     font-size:40px;
     font-weight:bold;
     margin:0 auto;
+    color: #776E65;
 }
 
 header #newgamebutton{
@@ -38,6 +39,7 @@ header p{
     font-family:Arial;
     font-size:25px;
     margin:10px auto;
+    color: #776E65;
 }
 
 #grid-container{
