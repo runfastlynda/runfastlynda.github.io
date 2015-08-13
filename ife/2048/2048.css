@@ -1,5 +1,6 @@
 body{
-overflow-y: hidden;
+    overflow-y: hidden;
+    background: #faf8ef;
 }
 header{
     display:block;
