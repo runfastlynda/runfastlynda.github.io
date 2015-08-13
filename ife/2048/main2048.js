@@ -13,7 +13,9 @@ $(document).ready(function(){
     newgame();
 });
 
-
+jQuery(window).scroll(function(){
+        jQuery(window).scrollTop(0);
+});
 
 function prepareForMobile(){
 
