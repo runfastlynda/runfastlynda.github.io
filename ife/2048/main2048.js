@@ -161,18 +161,21 @@ $(document).keydown( function( event ){
     }
 });
 
-document.addEventListener('touchstart',function(event){
+var gridcontainer = document.getElementById("grid-container"); 
+
+gridcontainer.addEventListener('touchstart',function(event){
     startx = event.touches[0].pageX;
     starty = event.touches[0].pageY;
 });
 
-document.addEventListener('touchend',function(event){
+gridcontainer.addEventListener('touchend',function(event){
     endx = event.changedTouches[0].pageX;
     endy = event.changedTouches[0].pageY;
 
     var deltax = endx - startx;
     var deltay = endy - starty;
 
+   
     if( Math.abs( deltax ) < 0.3*documentWidth && Math.abs( deltay ) < 0.3*documentWidth )
         return;
 
