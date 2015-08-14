@@ -9,12 +9,17 @@ header{
     text-align:center;
 }
 
+
 header h1{
     font-family:Arial;
     font-size:40px;
     font-weight:bold;
-    margin:0 auto;
     color: #776E65;
+
+}
+header .score{
+    display: inline; 
+
 }
 
 header #newgamebutton{
@@ -36,6 +41,7 @@ header #newgamebutton:hover{
 }
 
 header p{
+    display:block;
     font-family:Arial;
     font-size:25px;
     margin:10px auto;
@@ -73,4 +79,26 @@ header p{
     text-align:center;
 
     position:absolute;
+}
+
+#img{
+    width: 120px;
+    height: 200px;
+    display: none;
+    float: right;
+    margin-right: 340px;
+    text-align: center;
+    padding: 0;
+
+}
+#img img{
+    width: 120px;
+    height: 120px;
+    margin-bottom: 10px;
+}
+#img p{
+    margin: 5px auto;
+    font-family: sans-serif;
+    font-size: 12px;
+    color: #776E65;
 }

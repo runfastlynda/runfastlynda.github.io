@@ -8,14 +8,23 @@
     <link rel="stylesheet" type="text/css" href="2048.css" />
 
     <script type="text/javascript" src="http://libs.baidu.com/jquery/1.9.0/jquery.min.js"></script>
+    <script type="text/javascript" src="support2048.js"></script>
+    <script type="text/javascript" src="showanimation2048.js"></script>
+    <script type="text/javascript" src="main2048.js"></script>
     </head>
-<body>
+<body scroll="no">
     <header>
         <h1>2048</h1>
-        <a href="javascript:newgame();" id="newgamebutton">New Game</a>
-        <p>score : <span id="score">0</span></p>
+        <div class="score">
+            <a href="javascript:newgame();" id="newgamebutton">New Game</a>
+            <p>score : <span id="score">0</span></p>
+        </div>
     </header>
-
+    <div id="img">
+        <img  src="http://7xklz5.com1.z0.glb.clouddn.com/about.3.jpg">
+        <p>【微信公众号】</p>
+        <p>小白变怪兽</p>
+    </div>
     <div id="grid-container">
         <div class="grid-cell" id="grid-cell-0-0"></div>
         <div class="grid-cell" id="grid-cell-0-1"></div>
@@ -36,9 +45,7 @@
         <div class="grid-cell" id="grid-cell-3-1"></div>
         <div class="grid-cell" id="grid-cell-3-2"></div>
         <div class="grid-cell" id="grid-cell-3-3"></div>
-        <script type="text/javascript" src="support2048.js"></script>
-        <script type="text/javascript" src="showanimation2048.js"></script>
-        <script type="text/javascript" src="main2048.js"></script>
+        
 
     </div>
 

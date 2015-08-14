@@ -23,7 +23,12 @@ function prepareForMobile(){
         gridContainerWidth = 500;
         cellSpace = 20;
         cellSideLength = 100;
+
     }
+    if( documentWidth > 500 ){
+        $('#img').css('display','block');          
+    }
+
 
     $('#grid-container').css('width',gridContainerWidth - 2*cellSpace);
     $('#grid-container').css('height',gridContainerWidth - 2*cellSpace);
@@ -166,6 +171,8 @@ $(document).keydown( function( event ){
 });
 
 var gridcontainer = document.getElementById("grid-container"); 
+
+
 
 gridcontainer.addEventListener('touchstart',function(event){
     startx = event.touches[0].pageX;
