@@ -170,7 +170,7 @@ $(document).keydown( function( event ){
     }
 });
 
-var gridcontainer = document.getElementById("grid-container"); 
+gridcontainer = document.getElementById("grid-container"); 
 
 
 
