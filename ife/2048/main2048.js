@@ -11,6 +11,7 @@ var endy = 0;
 $(document).ready(function(){
     prepareForMobile();
     newgame();
+    event.preventDefault();
 });
 
 jQuery(window).scroll(function(){
@@ -171,9 +172,6 @@ $(document).keydown( function( event ){
             break;
     }
 });
-
-var gridcontainer = document.getElementById("grid-container"); 
-
 
 
 document.addEventListener('touchstart',function(event){
