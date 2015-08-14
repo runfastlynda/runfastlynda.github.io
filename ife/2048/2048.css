@@ -21,13 +21,14 @@ header h1{
 
 }
 header .score{
+
     display: inline; 
 
 }
 
 header #newgamebutton{
     display:block;
-    margin:10px auto;
+    margin:5px auto;
 
     width:100px;
     padding:10px 10px;
