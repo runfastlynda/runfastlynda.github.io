@@ -11,7 +11,7 @@ var endy = 0;
 $(document).ready(function(){
     prepareForMobile();
     newgame();
-    event.preventDefault();
+    
 });
 
 jQuery(window).scroll(function(){
@@ -173,14 +173,14 @@ $(document).keydown( function( event ){
     }
 });
 
-
-document.addEventListener('touchstart',function(event){
+var grid-container =document.getElementById('grid-container');
+grid-container.addEventListener('touchstart',function(event){
     event.preventDefault();
     startx = event.touches[0].pageX;
     starty = event.touches[0].pageY;
 });
 
-document.addEventListener('touchend',function(event){
+grid-container.addEventListener('touchend',function(event){
     event.preventDefault();
     endx = event.changedTouches[0].pageX;
     endy = event.changedTouches[0].pageY;
