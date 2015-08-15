@@ -14,9 +14,7 @@ $(document).ready(function(){
     
 });
 
-jQuery(window).scroll(function(){
-        jQuery(window).scrollTop(0);
-});
+
 
 function prepareForMobile(){
 
