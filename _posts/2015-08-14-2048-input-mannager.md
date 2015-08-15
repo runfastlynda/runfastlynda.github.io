@@ -59,7 +59,7 @@ KeyboardInputManager函数有如下结构：
 
 
 
-this.listen();
+	this.listen();
 
 
 
@@ -68,15 +68,13 @@ this指代KeyboardInputManager这个函数，我们从KeyboardInputManager的原
 首先是对键盘的控制
 
 
-
-	// 对全局进行事件监听，把握键盘方向键的控制
+// 对全局进行事件监听，把握键盘方向键的控制
 	document.addEventListener("keydown", function (event) {
-		var modifiers = event.altKey || event.ctrlKey || event.metaKey ||
-						event.shiftKey;
- 	  //把alt，ctrl，meta，shift这四个键按下的事件赋给了modifiers;
+		var modifiers = event.altKey || event.ctrlKey || event.metaKey ||event.shiftKey;
+//把alt，ctrl，meta，shift这四个键按下的事件赋给了modifiers;
 		var mapped    = map[event.which];
 
-    //判断按键是否标准，执行移动的函数
+//判断按键是否标准，执行移动的函数
 		if (!modifiers) {
 			if (mapped !== undefined) {
 				event.preventDefault();
@@ -84,7 +82,7 @@ this指代KeyboardInputManager这个函数，我们从KeyboardInputManager的原
 			}
 		}
 
-		// 添加R快捷键的行为
+// 添加R快捷键的行为
 		if (!modifiers && event.which === 82) {
 			self.restart.call(self, event);
 		}
@@ -95,20 +93,20 @@ this指代KeyboardInputManager这个函数，我们从KeyboardInputManager的原
 
 
 
-var map = {
-	38: 0, // Up
-	39: 1, // Right
-	40: 2, // Down
-	37: 3, // Left
-	75: 0, // Vim up
-	76: 1, // Vim right
-	74: 2, // Vim down
-	72: 3, // Vim left
-	87: 0, // W
-	68: 1, // D
-	83: 2, // S
-	65: 3  // A
-}
+	var map = {
+		38: 0, // Up
+		39: 1, // Right
+		40: 2, // Down
+		37: 3, // Left
+		75: 0, // Vim up
+		76: 1, // Vim right
+		74: 2, // Vim down
+		72: 3, // Vim left
+		87: 0, // W
+		68: 1, // D
+		83: 2, // S
+		65: 3  // A
+	}
 
 
 
@@ -117,13 +115,13 @@ var map = {
 
 		var touchStartClientX, touchStartClientY;
   	var gameContainer = document.getElementsByClassName("game-container")[0];
-  	//定义了页面中game-container这一部分
+		//定义了页面中game-container这一部分
 
 		//添加对gameContainer的监听事件
 		gameContainer.addEventListener(this.eventTouchstart, function (event) {
-    if ((!window.navigator.msPointerEnabled && event.touches.length > 1) ||event.targetTouches > 1)
-    //将多余一个指头的滑动事件忽略
- 		{   return;
+			if ((!window.navigator.msPointerEnabled && event.touches.length > 1) ||event.targetTouches > 1)
+		//将多余一个指头的滑动事件忽略
+
 
 
 
@@ -133,7 +131,7 @@ var map = {
 
 
     if (Math.max(absDx, absDy) > 10) {
-    self.emit("move", absDx > absDy ? (dx > 0 ? 1 : 3) : (dy > 0 ? 2 : 0));
+    	self.emit("move", absDx > absDy ? (dx > 0 ? 1 : 3) : (dy > 0 ? 2 : 0));
     }
     // (right : left) : (down : up)
 
