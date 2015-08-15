@@ -5,7 +5,6 @@ categories:
 - 博客
 ---
 
-###下载2048源码
 
 源于参加百度ife训练营，我需要设计一个2048的小游戏，就像这样的：
 
@@ -35,7 +34,7 @@ categories:
 
 这里是一个总控制javascript文件，通过调用GameManager构造函数，来定义一个实例对象，并且输入四个参数。
 
-```javaScript
+```javascript
 	new GameManager(4, KeyboardInputManager, HTMLActuator, LocalStorageManager);
 ```
 
