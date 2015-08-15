@@ -14,7 +14,9 @@ $(document).ready(function(){
     
 });
 
-
+jQuery(window).scroll(function(){
+        jQuery(window).scrollTop(0);
+});
 
 function prepareForMobile(){
 
@@ -140,6 +142,7 @@ function generateOneNumber(){
 }
 
 $(document).keydown( function( event ){
+    event.preventDefault();
     switch( event.keyCode ){
         case 37: 
             if( moveLeft() ){
