@@ -173,15 +173,15 @@ $(document).keydown( function( event ){
     }
 });
 
-var grid-container =document.getElementById('grid-container');
-grid-container.addEventListener('touchstart',function(event){
-    event.preventDefault();
+var gridcontainer =document.getElementById('grid-container');
+gridcontainer.addEventListener('touchstart',function(event){
     startx = event.touches[0].pageX;
     starty = event.touches[0].pageY;
+    event.preventDefault();
+
 });
 
-grid-container.addEventListener('touchend',function(event){
-    event.preventDefault();
+gridcontainer.addEventListener('touchend',function(event){
     endx = event.changedTouches[0].pageX;
     endy = event.changedTouches[0].pageY;
 
@@ -224,6 +224,8 @@ grid-container.addEventListener('touchend',function(event){
                 setTimeout("isgameover()",300);
             }
         }
+        event.preventDefault();
+
     }
 });
 
