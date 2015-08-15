@@ -70,22 +70,23 @@ this指代KeyboardInputManager这个函数，我们从KeyboardInputManager的原
 
 	// 对全局进行事件监听，把握键盘方向键的控制
 	document.addEventListener("keydown", function (event) {
-		var modifiers = event.altKey || event.ctrlKey || event.metaKey ||event.shiftKey;
+	var modifiers = event.altKey || event.ctrlKey || event.metaKey ||event.shiftKey;
 	//把alt，ctrl，meta，shift这四个键按下的事件赋给了modifiers;
-		var mapped    = map[event.which];
+
+	var mapped    = map[event.which];
 
 	//判断按键是否标准，执行移动的函数
-		if (!modifiers) {
-			if (mapped !== undefined) {
-				event.preventDefault();
-				self.emit("move", mapped);
-			}
+	if (!modifiers) {
+		if (mapped !== undefined) {
+			event.preventDefault();
+			self.emit("move", mapped);
 		}
+	}
 
 	// 添加R快捷键的行为
-		if (!modifiers && event.which === 82) {
-			self.restart.call(self, event);
-		}
+	if (!modifiers && event.which === 82) {
+		self.restart.call(self, event);
+	}
 
 
 
