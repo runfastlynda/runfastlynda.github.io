@@ -68,13 +68,13 @@ this指代KeyboardInputManager这个函数，我们从KeyboardInputManager的原
 首先是对键盘的控制
 
 
-// 对全局进行事件监听，把握键盘方向键的控制
+	// 对全局进行事件监听，把握键盘方向键的控制
 	document.addEventListener("keydown", function (event) {
 		var modifiers = event.altKey || event.ctrlKey || event.metaKey ||event.shiftKey;
-//把alt，ctrl，meta，shift这四个键按下的事件赋给了modifiers;
+	//把alt，ctrl，meta，shift这四个键按下的事件赋给了modifiers;
 		var mapped    = map[event.which];
 
-//判断按键是否标准，执行移动的函数
+	//判断按键是否标准，执行移动的函数
 		if (!modifiers) {
 			if (mapped !== undefined) {
 				event.preventDefault();
@@ -82,7 +82,7 @@ this指代KeyboardInputManager这个函数，我们从KeyboardInputManager的原
 			}
 		}
 
-// 添加R快捷键的行为
+	// 添加R快捷键的行为
 		if (!modifiers && event.which === 82) {
 			self.restart.call(self, event);
 		}
@@ -113,14 +113,14 @@ this指代KeyboardInputManager这个函数，我们从KeyboardInputManager的原
 然后是移动端滑动控制
 
 
-		var touchStartClientX, touchStartClientY;
-  	var gameContainer = document.getElementsByClassName("game-container")[0];
-		//定义了页面中game-container这一部分
+	var touchStartClientX, touchStartClientY;
+  var gameContainer = document.getElementsByClassName("game-container")[0];
+	//定义了页面中game-container这一部分
 
-		//添加对gameContainer的监听事件
-		gameContainer.addEventListener(this.eventTouchstart, function (event) {
-			if ((!window.navigator.msPointerEnabled && event.touches.length > 1) ||event.targetTouches > 1)
-		//将多余一个指头的滑动事件忽略
+	//添加对gameContainer的监听事件
+	gameContainer.addEventListener(this.eventTouchstart, function (event) {
+		if ((!window.navigator.msPointerEnabled && event.touches.length > 1) ||event.targetTouches > 1)
+	//将多余一个指头的滑动事件忽略
 
 
 
