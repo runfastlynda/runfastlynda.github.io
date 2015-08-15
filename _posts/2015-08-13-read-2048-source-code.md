@@ -34,9 +34,9 @@ categories:
 
 这里是一个总控制javascript文件，通过调用GameManager构造函数，来定义一个实例对象，并且输入四个参数。
 
-```javascript
+
 	new GameManager(4, KeyboardInputManager, HTMLActuator, LocalStorageManager);
-```
+	
 
 读上面的代码其实也说明白了这个游戏重要的javascript有哪些，也就是GameManager和输入的参数了。这里的GameManager在game_manager.js这个文件中有定义，输入的参数size=4, 而KeyboardInputManager, HTMLActuator,LocalStorageManager这三个参数分别在KeyboardInputManager.js，html_actuator.js，local_storage_manager.js的javascript文件中有定义，后续我们一一介绍。
 
