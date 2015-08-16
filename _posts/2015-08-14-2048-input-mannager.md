@@ -16,7 +16,7 @@ categories:
 
 ###call()
 
-JavaScript中this的动态切换，为其创造了巨大的灵活性，但也使得编程变得困难和模糊。input_mannager.js这里运用了call()的方法来固定this的确切指向，确定执行的作用域。
+JavaScript中this的动态切换，为其创造了巨大的灵活性，但也使得编程变的困难和模糊。input_mannager.js这里运用了call()的方法来固定this的确切指向，确定执行的作用域。
 
 函数的call方法，可以指定该函数内部this的指向，然后在所指定的作用域中，调用该函数。
 
@@ -90,7 +90,7 @@ this指代KeyboardInputManager这个函数，我们从KeyboardInputManager的原
 
 
 
-有趣的是这里不仅给光标移动映射了上下左右的移动事件，还对常用的游戏按键`W` `A` `S` `D`,还有Vim中得`H` `J` `K` `L`映射了上下左右的移动事件。
+有趣的是这里不仅给光标移动映射了上下左右的移动事件，还对常用的游戏按键`W` `A` `S` `D`,还有Vim中的`H` `J` `K` `L`映射了上下左右的移动事件。
 
 
 
