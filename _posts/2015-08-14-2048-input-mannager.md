@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "2048--input_mannager.js"
+title: "2048源代码解读（2）.js"
 categories:
 - 博客
 ---
@@ -71,7 +71,7 @@ this指代KeyboardInputManager这个函数，我们从KeyboardInputManager的原
 	// 对全局进行事件监听，把握键盘方向键的控制
 	document.addEventListener("keydown", function (event) {
 	var modifiers = event.altKey || event.ctrlKey || event.metaKey ||event.shiftKey;
-	//把alt，ctrl，meta，shift这四个键按下的事件赋给了modifiers;
+	//使用逻辑或|| 把alt，ctrl，meta，shift四个键按下的事件赋给了modifiers;
 
 	var mapped    = map[event.which];
 
@@ -139,4 +139,10 @@ this指代KeyboardInputManager这个函数，我们从KeyboardInputManager的原
 
 
 使用了两次三目运算的方法，比较absDx和absDy的大小，谁大代表在谁的坐标滑动，也就是判断是上下还是左右，如果absDx大，判断dx的正负，正是向右移动，负是向左移动，
-如果是absDy大，判断dy的正负，正是向下移动，负是向上移动
+如果是absDy大，判断dy的正负，正是向下移动，负是向上移动。
+
+举个栗子：
+
+![例子](http://7xjufd.dl1.z0.glb.clouddn.com/blog2.2.png)
+
+图中absDx和absDy是dx和dy的绝对值,首先可以判断 absDx < absDy,那么就在上下两个方向做判断，又因为dy是小于0的，所以这个滑动事件就代表着向上滑动。

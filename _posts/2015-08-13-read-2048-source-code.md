@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "2048源码解读"
+title: "2048源代码解读（1）"
 categories:
 - 博客
 ---
