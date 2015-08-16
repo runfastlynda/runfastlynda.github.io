@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "2048源代码解读（2）.js"
+title: "2048源代码解读（2）"
 categories:
 - 博客
 ---
