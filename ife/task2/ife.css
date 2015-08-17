@@ -1,0 +1,51 @@
+*{
+	font: 14px/1.5,"Helvetica",sans-serif;
+}
+h1{
+	color: #fff;
+	margin: 0 auto;
+	margin-top: 120px;
+	text-align: center;
+	font-size: 50px;
+	font-weight: bold;
+	font-family: Helvetica;
+}
+p{
+	text-align: center;
+	font-size: 24px;
+	color: #fff;
+
+}
+.header{
+	color: #283237;
+	background: #ECEFF1;
+	height: 80px;
+	text-align: center;
+	position: fixed;
+}
+
+
+.page1{
+	background-color:  #369AD3;
+}
+.page2{
+	background-color: #1C386F;
+}
+.page3{
+	background-color: #479A83;
+}
+.page4{
+	background-color: #C63A3B;
+}
+
+#weixin{
+	display: block;
+	margin: 100px auto;
+}
+.weixin{
+	font-size: 12px;
+}
+
+
+
+
