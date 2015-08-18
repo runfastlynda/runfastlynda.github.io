@@ -4,7 +4,7 @@ title: "2048源代码解读（3）"
 categories:
 - 博客
 ---
-上文已经介绍了input_mannager.js那一部分的代码，接着想了解游戏中的数据是怎么存储和调用的，所以来阅读local_storage_manager.js。
+[前面一篇](http://runfastlynda.com/2048-input-mannager/)已经介绍了input_mannager.js那一部分的代码，接着想了解游戏中的状态数据是怎么存储和调用的，所以来阅读local_storage_manager.js。
 
 local_storage_manager.js包括两个部分：window.fakeStorage和LocalStorageManager函数。查看到前者在LocalStorageManager函数中有调用，所以决定先阅读LocalStorageManager。
 
@@ -25,7 +25,7 @@ LocalStorageManager函数有如下结构：
 
 这里涉及了supported与window.fakeStorage。下文一一介绍。
 
-使用原型链定义this.localStorageSupported（也就是上文的supported），用途是为了测试浏览器是否支持window.localStorage。
+通过查找方法在原型链找到了this.localStorageSupported的定义（也就是上文的supported），用途是为了测试浏览器是否支持window.localStorage。
 
     LocalStorageManager.prototype. localStorageSupported= function () {
         var testKey = "test";
@@ -65,9 +65,9 @@ fakeStorage就是作者自己写的一个localStorage的替代方法，也定义
 
 最后使用了 JSON.parse()和JSON.stringify()。
 
-JSON.parse() 方法将JSON 字符串解析成为 JavaScript 值。
+JSON.parse() 方法将JSON 字符串解析成为 JavaScript 中对应的基本数据类型。
 
-JSON.stringify() 方法将任意JavaScript 值序列化成 JSON 字符串。
+JSON.stringify() 方法将任意JavaScript 对应的基本数据类型序列化成 JSON 字符串。
 
 
 
@@ -80,3 +80,16 @@ JSON.stringify() 方法将任意JavaScript 值序列化成 JSON 字符串。
       LocalStorageManager.prototype.setGameState = function (gameState) {
         this.storage.setItem(this.gameStateKey, JSON.stringify(gameState));
       };
+
+
+阅读完local_storage_manager.js，了解其不仅保存了分数，还保存了游戏状态。由此local_storage_manager.js会被经常调用，罗列一下调用情况：
+
+game_manager.js中调用过
++ LocalStorageManager.getBestScore
++ LocalStorageManager.setBestScore
++ LocalStorageManager.setGameState
++ LocalStorageManager.clearGameState
++ LocalStorageManager.setBestScore
+
+grid.js调用
++ LocalStorageManager.setBestScore
