@@ -85,11 +85,13 @@ JSON.stringify() 方法将任意JavaScript 对应的基本数据类型序列化�
 阅读完local_storage_manager.js，了解其不仅保存了分数，还保存了游戏状态。由此local_storage_manager.js会被经常调用，罗列一下调用情况：
 
 game_manager.js中调用过
-+ LocalStorageManager.getBestScore
-+ LocalStorageManager.setBestScore
-+ LocalStorageManager.setGameState
-+ LocalStorageManager.clearGameState
-+ LocalStorageManager.setBestScore
+
+* LocalStorageManager.getBestScore
+* LocalStorageManager.setBestScore
+* LocalStorageManager.setGameState
+* LocalStorageManager.clearGameState
+* LocalStorageManager.setBestScore
 
 grid.js调用
-+ LocalStorageManager.setBestScore
+
+* LocalStorageManager.setBestScore
