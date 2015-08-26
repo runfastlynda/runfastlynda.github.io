@@ -37,11 +37,9 @@ setup函数定义游戏的执行方法，首先从storageManager里获取游戏�
           this.won         = false;
           this.keepPlaying = false;
 
-          // 添加初始砖
+          // 添加tile
           this.addStartTiles();
         }
-
-        // 更新执行器
         this.actuate();
       };
 
