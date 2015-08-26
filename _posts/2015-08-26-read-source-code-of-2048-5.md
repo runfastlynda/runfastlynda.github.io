@@ -45,7 +45,7 @@ setup函数定义游戏的执行方法，首先从storageManager里获取游戏�
         this.actuate();
       };
 
-这里定义了添加初始砖的方法
+这里定义了添加初始tile的方法
 
       // 设置初始tile开始游戏
       GameManager.prototype.addStartTiles = function () {
@@ -118,7 +118,7 @@ setup函数定义游戏的执行方法，首先从storageManager里获取游戏�
                 }
 
                 if (!self.positionsEqual(cell, tile)) {
-                  moved = true; // 瓷砖从原来的cell移动！
+                  moved = true; // tile从原来的cell移动！
                 }
               }
           });
