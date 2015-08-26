@@ -11,8 +11,8 @@ GameManager函数有如下结构：![](http://7xjufd.dl1.z0.glb.clouddn.com/blog
 
 函数输入了size, InputManager, Actuator, StorageManager这四个参数，这都是之前我们解读过的，
 参数传入后，size 赋值给当前对象的size，其他三个参数通过new命令调用了构造函数，返回三个实例对象，
-初始化tilewz2，绑定inputmanager的move，restart，keepPlaying到当前对象，
-最后是重要的是setup函数。
+初始化tile开始时为2个，绑定inputmanager的move，restart，keepPlaying到当前对象，
+最后是重要的setup函数。
 
 ##### setup函数
 
