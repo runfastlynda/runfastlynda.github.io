@@ -7,11 +7,11 @@ categories:
 
 我们这次的目标是做一个响应式导航菜单，不使用javascript，只使用CSS就可以做到。就像这样：
 
-#### 初试效果
+##### 初试效果
 ![pc](http://7xjufd.dl1.z0.glb.clouddn.com/blog6.1.png)
 
 
-#### 响应式效果
+##### 响应式效果
 ![pc](http://7xjufd.dl1.z0.glb.clouddn.com/blog6.3.png)
 
 
@@ -90,7 +90,7 @@ label {
 input框如果被用户勾选了，其后面的ul元素会有相应的样式变化，显示出来。
 
 
-#### 实现收回
+#### 实现收回导航栏
 使用label:active选择器，当再一次按下lable时就会有相应的样式变化。就像这样：
 
 ![pc](http://7xjufd.dl1.z0.glb.clouddn.com/blog6.3.png)
