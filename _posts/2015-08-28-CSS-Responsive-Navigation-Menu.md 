@@ -19,7 +19,7 @@ categories:
 
 
 ### HTML部分
-
+```
 
       <nav>
         <label for="menu-toggle">☰</label>
@@ -30,7 +30,7 @@ categories:
           <li role="presentation"><a href="#">Contact</a></li>
         </ul>
       </nav>
-
+```
 我们要利用label元素的"for"属性，对应一个checkbox的id
 
       <label for="User">Click me</label>
@@ -39,7 +39,7 @@ categories:
 上面的代码表示：当我们点击 `Clickme` 就等于input复选框被选中。
 
 ### CSS部分
-
+```
 
       label {
         display: none;
@@ -83,7 +83,7 @@ categories:
         }
 
       }
-
+```
 
 #### 如何实现弹出导航栏
 
