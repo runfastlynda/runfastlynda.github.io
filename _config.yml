@@ -1,3 +1,7 @@
+
+markdown: rdiscount
+highlighter: pygments
+
 baseurl: "" # The subpath of your site. Use "" if you're hosting a blog at the root level.
 url: "http://ellekasai.github.io" # the base hostname & protocol for your site
 title: "RunfastLynda"

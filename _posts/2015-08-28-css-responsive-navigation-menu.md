@@ -16,7 +16,7 @@ categories:
 
 
 ### HTML代码
-```
+```html
 <nav>
   <label for="menu-toggle">☰</label>
   <input type="checkbox" id="menu-toggle"/>
@@ -29,15 +29,14 @@ categories:
 ```
 
 我们要利用label元素的"for"属性，对应一个checkbox的id
-```
+```html
 <label for="User">Click me</label>
 <input type="text" id="User" name="Name" />
 ```
 上面的代码表示：当我们点击 `Clickme` 就等于input复选框被选中。
 
 ### CSS代码
-
-```
+```css
 label {
 	display: none;
 }
