@@ -8,30 +8,30 @@ categories:
 ### html5标准模板
 
 ```html
-      <!doctype html>
+    <!doctype html>
 
-      <html lang="en">
-        <head>
-          <meta charset="utf-8">
+    <html lang="en">
+      <head>
+        <meta charset="utf-8">
 
-          <!--要求 IE 遵守现代浏览器的渲染标准-->
-          <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <!--要求 IE 遵守现代浏览器的渲染标准-->
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-          <title>My Site</title>
+        <title>My Site</title>
 
-          <!--在移动端不允许缩放页面，锁死页面在移动设备显示宽度-->
-          <meta name="viewport" content="width=device-width,initial-scale=1">
+        <!--在移动端不允许缩放页面，锁死页面在移动设备显示宽度-->
+        <meta name="viewport" content="width=device-width,initial-scale=1">
 
-          <!--引入了 normalize.css, 在默认的HTML元素样式上提供了跨浏览器的高度一致性-->
-          <link rel="stylesheet" href="css/normalize.css">
+        <!--引入了 normalize.css, 在默认的HTML元素样式上提供了跨浏览器的高度一致性-->
+        <link rel="stylesheet" href="css/normalize.css">
 
-          <!--页面的层叠样式表-->
-          <link rel="stylesheet" href="css/main.css">
-        </head>
-        <body>
-          ...
-        </body>
-      </html>
+        <!--页面的层叠样式表-->
+        <link rel="stylesheet" href="css/main.css">
+      </head>
+      <body>
+        ...
+      </body>
+    </html>
 ```
 上面提供的html5标准模板包含了3个内容：设置 doctype，设置页面编码，引入css包括具有初始化css。
 
@@ -65,22 +65,22 @@ html标准模板准备好后，我们还需要一个特别好的前端自动化�
 + 全局安装 gulp：
 
 ```
-      $ npm install --global gulp
+    $ npm install --global gulp
 ```
 + 创建项目文件
 
 ```
-      mkdir project
+    mkdir project
 ```
 + 初始化项目并创建package.json文件
 
 ```
-      npm init
+    npm init
 ```
 + 将gulp安装到当前项目下，并作为依赖写入package.json
 
 ```
-      npm install gulp --save-dev
+    npm install gulp --save-dev
 ```
 
 ###### 使用
@@ -125,7 +125,7 @@ gulp.task('watch', ['browserSync'], function (){
 
 
 ```
-      $ gulp task-name
+    $ gulp task-name
 ```
 
 自此，我们做的准备差不多完成了，现在就开始开发一个前端项目了！
