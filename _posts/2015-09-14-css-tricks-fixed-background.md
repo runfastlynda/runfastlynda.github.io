@@ -1,16 +1,17 @@
 ---
 layout: post
-title: “CSS 技巧之固定背景 ”
+title: “CSS技巧之固定背景 ”
 categories:
 - 博客
 ---
 
+当我们滚动页面时发现：
 
-浏览很炫的页面时，滚动页面我们通常可以发现：
+页面的背景是固定的，不随页面的滚动而滚动，同时放大和缩小窗口可以发现页面背景也会随之放大和缩小。
 
-页面的背景是固定的，不随页面的滚动而滚动，同时放大和缩小窗口可以发现页面背景也会随之放大和缩
-小。下面就来实现一个固定背景！
+这种固定背景的效果该如何实现？下面来看看！
 ### CSS 技巧 - 固定背景
+
 ##### 最终效果
 [codepen在线demo](http://codepen.io/runfastlynda/pen/epJByp?editors=110)
 ##### 实现代码
@@ -68,6 +69,7 @@ background-position: 0 100px;
 背景位置属性还有其他的值:关键字和百分比。
 
 使用时它们的顺序是和值为像素完全一样，x轴值第一，和y轴的值的第二，就像这样：
+
 ```css
 background-position: top right;
 background-position: 100% 50%;
