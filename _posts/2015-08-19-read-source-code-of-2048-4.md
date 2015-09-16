@@ -11,7 +11,7 @@ HTMLActuator函数有如下结构：![](http://7xjufd.dl1.z0.glb.clouddn.com/blo
 
 在函数的最开始获取了tile-container，score-container，best-container，game-message的dom节点。
 
-在HTMLActuator的原型链上定义了actuate方法，值得注意的是这个函数的第一句运用中间变量，固定this的确切指向，确定执行的作用域。防止函数内部的多层this导致this的指向是不确定的。
+在HTMLActuator的prototype上定义了actuate方法，值得注意的是这个函数的第一句运用中间变量，固定this的确切指向，确定执行的作用域。防止函数内部的多层this导致this的指向是不确定的。
 
 紧接着window.requestAnimationFrame()这个方法是用来在页面重绘之前，通知浏览器调用接受的函数。
 
@@ -44,9 +44,9 @@ HTMLActuator函数有如下结构：![](http://7xjufd.dl1.z0.glb.clouddn.com/blo
       });
     };
 
-clearContainer方法，addTile方法，updateScore方法，updateBestScore方法，message方法我们在原型链上都可以找到。
+clearContainer方法，addTile方法，updateScore方法，updateBestScore方法，message方法我们在prototype上都可以找到。
 
-比较重要的是在HTMLActuator原型链上定义的addTile方法。
+比较重要的是在HTMLActuator的prototype上定义的addTile方法。
 
     HTMLActuator.prototype.addTile = function (tile) {
       var self = this;
