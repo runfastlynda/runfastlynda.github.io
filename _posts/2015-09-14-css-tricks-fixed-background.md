@@ -1,6 +1,6 @@
 ---
 layout: post
-title: “CSS技巧之固定背景 ”
+title: CSS技巧之固定背景 
 categories:
 - 博客
 ---

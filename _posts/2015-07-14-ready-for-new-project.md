@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "开发一个前端项目的正确预备式"
+title: 开发一个前端项目的正确预备式
 categories:
 - 博客
 ---

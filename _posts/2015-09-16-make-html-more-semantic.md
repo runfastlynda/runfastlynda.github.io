@@ -1,6 +1,6 @@
 ---
 layout: post
-title: “ html语义化 ”
+title:  我理解的html语义化 
 categories:
 - 博客
 ---

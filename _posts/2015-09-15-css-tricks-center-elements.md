@@ -1,6 +1,6 @@
 ---
 layout: post
-title: “CSS技巧之居中元素的几种方法 ”
+title: CSS技巧之居中元素的几种方法 
 categories:
 - 博客
 ---
