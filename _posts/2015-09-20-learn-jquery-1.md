@@ -11,7 +11,7 @@ jQuery不需要安装,要使用它只需该文件的一个副本,该副本可以
 [jQuery官方网站](http://jquery.com/)始终都包含该库最新的稳定版本,通过官网的首页就可以下载。
 随着jQuery的日益流行,很多公司都通过自己的CDN(Content Delivery Networks,内容分发 网络)来托管其库文件,让开发人员能更方便地使用它。
 最典型的就是[谷歌](https:// developers.google.com/speed/libraries/devguide)和[微软](http://www.asp.net/ajaxlibrary/cdn.ashx) 和[jQuery项目自己的服务器](http://code.jquery.com/),
-jQuery库文件被放在了强劲、低延时的服 务器上,这些服务器遍布全球各地,无论用户在哪个国家,都能以最快速度下载到jQuery。(百度也有提供)
+jQuery库文件被放在了强劲、低延时的服务器上,这些服务器遍布全球各地,无论用户在哪个国家,都能以最快速度下载到jQuery。
 
 使用jQuery只需要在script标签中引入jQuery文件，例如
 
@@ -112,7 +112,7 @@ $('td:contains("Henry")').addClass('highlight');
 ```
 $('th').parent().addClass('table-heading');
 ```
-选取th的父母(tr):　　标题行
+选取th的父母(tr):标题行
 
 ```
 $('tr:not([th]):even').addClass('even');
@@ -136,6 +136,6 @@ $('td:contains("Henry")').siblings().addClass('highlight');
 选取带有Henry字符串的所有td的其他同辈td
 
 ```
-$('td:contains("Henry")').parent().find('td:gt(0)').addClass('highlight');
+$('td:contains("Henry")').parent().find('td:eq(0)').addClass('highlight');
 ```
-选取带有Henry的单元格,取得他得父元素,然后找到该元素所有编号大于0的单元格
+选取带有Henry的单元格,取得他得父元素,然后找到该元素的第一个单元格
