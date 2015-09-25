@@ -11,7 +11,7 @@ jQuery不需要安装,要使用它只需该文件的一个副本,该副本可以
 [jQuery官方网站](http://jquery.com/)始终都包含该库最新的稳定版本,通过官网的首页就可以下载。
 随着jQuery的日益流行,很多公司都通过自己的CDN(Content Delivery Networks,内容分发 网络)来托管其库文件,让开发人员能更方便地使用它。
 最典型的就是[谷歌](https:// developers.google.com/speed/libraries/devguide)和[微软](http://www.asp.net/ajaxlibrary/cdn.ashx) 和[jQuery项目自己的服务器](http://code.jquery.com/),
-jQuery库文件被放在了强劲、低延时的服务器上,这些服务器遍布全球各地,无论用户在哪个国家,都能以最快速度下载到jQuery。
+jQuery库文件被放在了强劲、低延时的服务器上,可以以最快速度下载到jQuery。
 
 使用jQuery只需要在script标签中引入jQuery文件，例如
 
