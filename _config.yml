@@ -12,4 +12,5 @@ twitter_username: runfastlynda
 github_username:  runfastlynda
 weixinurl: http://7xklz5.com1.z0.glb.clouddn.com/about.3.jpg
 # Build settings
-markdown: kramdown
+markdown: rdiscount
+highlighter: pygments

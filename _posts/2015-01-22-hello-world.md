@@ -7,7 +7,9 @@ categories:
 
 #你好，世界!
 
-`print "Hello,World!"`
+```
+console.log('hello world')
+```
 
 ![hello world](http://freshstu.qiniudn.com/_helloworld.png)
 

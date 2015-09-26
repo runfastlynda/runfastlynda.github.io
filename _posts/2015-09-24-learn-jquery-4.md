@@ -37,59 +37,63 @@ categories:
 
 + empty():移除每个匹配的元素
 
-###5单元练习
+###第五单元练习
 
 (1)修改添加back top链接的代码，以便这些链接只从第四段后面才开始出现。
 
 ```
-      $(document).ready(function(){
-        var $p = $('div.chapter p').eq(2).nextAll();
-        $('<a href="#top">back to top</a>').insertAfter($p);
-        $('<a id="top"></a>').prependTo('body');
-      });
+$(document).ready(function(){
+  var $p = $('div.chapter p').eq(2).nextAll();
+  $('<a href="#top">back to top</a>').insertAfter($p);
+  $('<a id="top"></a>').prependTo('body');
+});
 ```
 
 (2)在单击back to top链接时，为每个链接后面添加一个新段落，其中包含You were here字样。确保链接仍然有效。
 
-
-      $(document).ready(function(){
-        $('<a href="#top">back to top</a>').insertAfter('div.chapter p');
-        $('a[href$="#top"]').on('click', function(){
-          $('<p>You were here</p>').insertAfter(this);
-        });
-      });
-
+```
+$(document).ready(function(){
+  $('<a href="#top">back to top</a>').insertAfter('div.chapter p');
+  $('a[href$="#top"]').on('click', function(){
+    $('<p>You were here</p>').insertAfter(this);
+  });
+});
+```
 (3)在单击作者名字时，把文本改为粗体(通过添加一个标签，而不是操作类或css属性)。
 
-      $(document).ready(function(){
-        $('#f-author').on('click', function(){
-          $(this).html('<b>by Edwin A. Abbott</b>');
-        });
-      });
-
+```
+$(document).ready(function(){
+  $('#f-author').on('click', function(){
+    $(this).html('<b>by Edwin A. Abbott</b>');
+  });
+});
+```
 (4)挑战:在随后单击粗体作者名字时，删除之前添加的元素(也就是在粗体文本与正常文本之间切换)。
 
-      $(document).ready(function(){
-        var simple = 'by Edwin A. Abbott';
-        var b_simple = '<b>by Edwin A. Abbott</b>';
-        $('#f-author').on('click', function(){
-          if($(this).html() == simple){
-            $(this).html(b_simple);
-          }else if($(this).html() == b_simple){
-            $(this).html(simple);
-          };
-        });
-      });
-
+```
+$(document).ready(function(){
+  var simple = 'by Edwin A. Abbott';
+  var b_simple = '<b>by Edwin A. Abbott</b>';
+  $('#f-author').on('click', function(){
+    if($(this).html() == simple){
+      $(this).html(b_simple);
+    }else if($(this).html() == b_simple){
+      $(this).html(simple);
+    };
+  });
+});
+```
 (5)挑战：为正文中的每一个段落添加一个inhabitants类，但不能调用.addClass()方法。确保不影响现有的类。
 
-      $(document).ready(function(){
-        $('p').each(function(){
-          var a = $(this).attr('class');
-          if(a == null){
-            $(this).attr('class','inhabitants');
-          }else{
-            $(this).attr('class',a + ' inhabitants');
-          };
-        });
-      });
+```
+$(document).ready(function(){
+  $('p').each(function(){
+    var a = $(this).attr('class');
+    if(a == null){
+      $(this).attr('class','inhabitants');
+    }else{
+      $(this).attr('class',a + ' inhabitants');
+    };
+  });
+});
+```

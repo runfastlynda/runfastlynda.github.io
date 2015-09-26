@@ -31,49 +31,52 @@ string是适当的显示值，先使用.hide()方法可以把之前的display的
 + .animate()可以创建控制更加细致的自定义动画。
 
 第一种形式：
-```
-      .animate({property1: 'value1', property2: 'value2'},
-      duration, easing, function() {
-          alert('The animation is finished.');
-        }
+
+```js
+.animate({property1: 'value1', property2: 'value2'},
+duration, easing, function() {
+    alert('The animation is finished.');
+  }
 ```
 
 第二种形式：
-```
-      .animate({
-            property1: 'value1',
-            property2: 'value2'
-          }, {
-            duration: 'value',
-            easing: 'value',
-            specialEasing: {
-              property1: 'easing1',
-              property2: 'easing2'
-            },
-            complete: function() {
-              alert('The animation is finished.');
-            },
-            queue: true,
-            step: callback
-      });
+
+```js
+.animate({
+      property1: 'value1',
+      property2: 'value2'
+    }, {
+      duration: 'value',
+      easing: 'value',
+      specialEasing: {
+        property1: 'easing1',
+        property2: 'easing2'
+      },
+      complete: function() {
+        alert('The animation is finished.');
+      },
+      queue: true,
+      step: callback
+});
 ```
 
 + 排队效果：通过使用连缀方法
 􏵣􏵤􏵥􏵦􏵧􏵨􏵩􏵪􏵫􏳽􏳾􏴽􏴾􏵣􏵤􏵥􏵦􏵧􏵨􏵩􏵪􏵫􏳽􏳾􏴽􏴾􏵣􏵤􏵥􏵦􏵧􏵨􏵩􏵪
 例如：
-```
-       $(document).ready(function() {
-            $('div.label').click(function() {
-              var paraWidth = $('div.speech p').outerWidth();
-              var $switcher = $(this).parent();
-              var switcherWidth = $switcher.outerWidth();
-              $switcher
-                .css({position: 'relative'})
-                .animate({left: paraWidth - switcherWidth}, 'slow')
-                .animate({height: '+=20px'}, 'slow')
-                .animate({borderWidth: '5px'}, 'slow');
-            });
-      });
+
+```js
+$(document).ready(function() {
+    $('div.label').click(function() {
+      var paraWidth = $('div.speech p').outerWidth();
+      var $switcher = $(this).parent();
+      var switcherWidth = $switcher.outerWidth();
+      $switcher
+        .css({position: 'relative'})
+        .animate({left: paraWidth - switcherWidth}, 'slow')
+        .animate({height: '+=20px'}, 'slow')
+        .animate({borderWidth: '5px'}, 'slow');
+    });
+});
 ```
 
 + 一组元素上的效果：
@@ -88,88 +91,94 @@ string是适当的显示值，先使用.hide()方法可以把之前的display的
 
 当在另一个效果方法或者在.queue()方法的回调函数中应用时，是按顺序发生的（排序效果）。
 
-###4单元课后习题
+###第四单元课后习题
 
 (1)修改样式表，一开始先隐藏页面内容，当页面加载后，慢慢地淡入内容。
+
 ```
-      $(document).ready(function(){
-        $('body').css('display','none');
-        $('body').fadeIn(3000);
-      });
+$(document).ready(function(){
+  $('body').css('display','none');
+  $('body').fadeIn(3000);
+});
 ```
 
 (2)在鼠标悬停到段落上面时，给段落应用黄色背景。
+
 ```
-      $(document).ready(function(){
-        $('p').mouseover(function(){
-          $(this).css('backgroundColor', 'yellow')
-          .mouseout(function(){
-            $(this).css('backgroundColor', 'white')
-          });
-        });
-      });
+$(document).ready(function(){
+  $('p').mouseover(function(){
+    $(this).css('backgroundColor', 'yellow')
+    .mouseout(function(){
+      $(this).css('backgroundColor', 'white')
+    });
+  });
+});
 ```
-(3)单击标题(<h2>)使其不透明度变为25%，同时添加20px的左外边距，当这两个效果完成后，把讲话文本变成50%的不透明度。
+
+(3)单击标题使其不透明度变为25%，同时添加20px的左外边距，当这两个效果完成后，把讲话文本变成50%的不透明度。
+
 ```
-      $(document).ready(function(){
-        $('h2').on('click', function(){
-          $(this)
-          .fadeTo('slow', 0.25)
-          .animate({
-            paddingLeft: '+=200px'
-          },{
-            duration: 'slow',
-            queue:false
-          })
-          .queue(function(next) {
-            $('div.speech').fadeTo('slow', 0.5)
-          });
-        });
-      });
+$(document).ready(function(){
+  $('h2').on('click', function(){
+    $(this)
+    .fadeTo('slow', 0.25)
+    .animate({
+      paddingLeft: '+=200px'
+    },{
+      duration: 'slow',
+      queue:false
+    })
+    .queue(function(next) {
+      $('div.speech').fadeTo('slow', 0.5)
+    });
+  });
+});
 ```
+
 (4)挑战：按下方向键时，使样式转换器向相应的方向平滑移动20像素；四个方向键的键码分别是37(左)、38(上)、39(右)、40(下)。
+
 ```
-      $(document).ready(function(){
-        var key_left = 37;
-        var key_up = 38;
-        var key_right = 39;
-        var key_down = 40;
-        var $switcher = $('#switcher');
-        $switcher.css('position', 'relative');
-        $(document).keyup(function(event){
-          switch(event.which){
-            case 37:
-              $switcher
-              .animate({
-                left: '-=20px'
-              },{
-                duration: 'fast'
-              })
-                break;
-            case 38:
-              $switcher
-              .animate({
-                top: '-=20px'
-              },{
-                duration: 'fast'
-              })
-              break;
-            case 39:
-              $switcher
-              .animate({
-                left: '+=20px'
-              },{
-                duration: 'fast'
-              })
-              break;
-            case 40:
-              $switcher
-             .animate({
-               top: '+=20px'
-             },{
-               duration: 'fast'
-             });
-          };
-        });
-      });
+$(document).ready(function(){
+  var key_left = 37;
+  var key_up = 38;
+  var key_right = 39;
+  var key_down = 40;
+  var $switcher = $('#switcher');
+  $switcher.css('position', 'relative');
+  $(document).keyup(function(event){
+    switch(event.which){
+      case 37:
+        $switcher
+        .animate({
+          left: '-=20px'
+        },{
+          duration: 'fast'
+        })
+          break;
+      case 38:
+        $switcher
+        .animate({
+          top: '-=20px'
+        },{
+          duration: 'fast'
+        })
+        break;
+      case 39:
+        $switcher
+        .animate({
+          left: '+=20px'
+        },{
+          duration: 'fast'
+        })
+        break;
+      case 40:
+        $switcher
+       .animate({
+         top: '+=20px'
+       },{
+         duration: 'fast'
+       });
+    };
+  });
+});
 ```
