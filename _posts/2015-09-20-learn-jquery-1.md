@@ -15,9 +15,7 @@ jQuery库文件被放在了强劲、低延时的服务器上,可以以最快速�
 
 使用jQuery只需要在script标签中引入jQuery文件，例如
 
-```
-<script src="jQuery.js"></script>
-```
+      <script src="jQuery.js"></script>
 
 注意这行代码应该写在在引用样式表文件的代码之后,和引用自定义脚本文件的script标签之前。否则,在我们编写的代码中将引用不到jQuery框架。
 
@@ -52,90 +50,83 @@ jQuery最强大的特性之一就是它能够简化在DOM中选择元素的任�
 
 ##### CSS 选择符
 
-```
-$('#selected-plays > li')
-```
+      $('#selected-plays > li')
+
 选取id为selected-plays的所有li子元素
 
-```
-$('#selected-plays li:not(.horizontal)').addClass('sub-level'):
-```
+      $('#selected-plays li:not(.horizontal)').addClass('sub-level'):
+
 选取id为selected-plays没有horizontal类的所有后代li元素
 
-```
-$('a[@title]')
-```
+      $('a[@title]')
 
 选择所有带title属性的链接
 
-```
-$('div[ol]')
-```
+      $('div[ol]')
+
 取得包含一个ol的所有div属性
+
 >注意：方括号左边的才是选择的目标对象，方括号里的筛选的条件
 
-```
-$('a[href^=mailto:]').addClass('mailto');
-```
+      $('a[href^=mailto:]').addClass('mailto');
+
 选择href属性以mailto为开头的a
 
-```
-$('a[href$=.pdf]').addClass('pdflink');
-```
+      $('a[href$=.pdf]').addClass('pdflink');
+
 选择href属性以.pdf为结尾的a
 
 
-```
-$('div.horizontal:eq(1)')
-```
+      $('div.horizontal:eq(1)')
+
 选取带有horizontal类的div集合中的第二个
+
 >注意：Javascript数组是从0开始的
 
-```
-$('tr:odd').addClass('odd');
-```
+      $('tr:odd').addClass('odd');
+
 选取偶数行
+
 >为什么针对偶数行使用:odd选择符呢?很简单,:eq()选择符、:odd和:even选
 择符都使用JavaScript内置从0开始的编号方式,因此,第一行的编号为0(偶数),第二行的编号 为1(奇数),依此类推
 
-```
-$('tr:even').addClass('even');
-```
+      $('tr:even').addClass('even');
+
 选取奇数行
+
 >注意：适用于页面只有单表格,多表格另有方法
 
-```
-$('td:contains("Henry")').addClass('highlight');
-```
+      $('td:contains("Henry")').addClass('highlight');
+
 选取带有Henry字符串的所有td
 
-```
-$('th').parent().addClass('table-heading');
-```
+
+      $('th').parent().addClass('table-heading');
+`
 选取th的父母(tr):标题行
 
-```
-$('tr:not([th]):even').addClass('even');
-```
+
+      $('tr:not([th]):even').addClass('even');
+
 选取不含有th的tr的奇数
 
-```
-$('tr:not([th]):odd').addClass('odd');
-```
+
+      $('tr:not([th]):odd').addClass('odd');
+
 选取不含有th的tr的偶数
+
 >注意这里$('tr:not([th]):even')和tr:even:not([th])不一样，有先后顺序
 
-```
-$('td:contains("Henry")').next().addClass('highlight');
-```
+
+      $('td:contains("Henry")').next().addClass('highlight');
+
 选取带有Henry字符串的td的下一个td
 
-```
-$('td:contains("Henry")').siblings().addClass('highlight');
-```
+
+      $('td:contains("Henry")').siblings().addClass('highlight');
+
 选取带有Henry字符串的所有td的其他同辈td
 
-```
-$('td:contains("Henry")').parent().find('td:eq(0)').addClass('highlight');
-```
+      $('td:contains("Henry")').parent().find('td:eq(0)').addClass('highlight');
+
 选取带有Henry的单元格,取得他得父元素,然后找到该元素的第一个单元格

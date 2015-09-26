@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "jQuery基础教程-学习笔记（3）"
-date:   2015-09-22 18:28:16
+date:   2015-09-23 18:28:16
 categories:
 ---
 
@@ -60,6 +60,7 @@ string是适当的显示值，先使用.hide()方法可以把之前的display的
 + 􏴷􏴸􏴀􏱢􏴷􏴸􏴀􏱢􏴷􏴸􏴀􏱢排队效果：通过使用连缀方法
 
 例如：
+
        $(document).ready(function() {
             $('div.label').click(function() {
               var paraWidth = $('div.speech p').outerWidth();
@@ -168,5 +169,3 @@ string是适当的显示值，先使用.hide()方法可以把之前的display的
           };
         });
       });
-
-    
