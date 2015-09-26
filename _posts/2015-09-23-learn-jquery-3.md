@@ -31,14 +31,15 @@ string是适当的显示值，先使用.hide()方法可以把之前的display的
 + .animate()可以创建控制更加细致的自定义动画。
 
 第一种形式：
-
+```
       .animate({property1: 'value1', property2: 'value2'},
       duration, easing, function() {
           alert('The animation is finished.');
         }
+```
 
 第二种形式：
-
+```
       .animate({
             property1: 'value1',
             property2: 'value2'
@@ -55,12 +56,12 @@ string是适当的显示值，先使用.hide()方法可以把之前的display的
             queue: true,
             step: callback
       });
+```
 
-􏵣􏵤􏵥􏵦􏵧􏵨􏵩􏵪􏵫􏳽􏳾􏴽􏴾􏵣􏵤􏵥􏵦􏵧􏵨􏵩􏵪􏵫􏳽􏳾􏴽􏴾􏵣􏵤􏵥􏵦􏵧􏵨􏵩􏵪􏵫􏳽􏳾􏴽􏴾
-+ 􏴷􏴸􏴀􏱢􏴷􏴸􏴀􏱢􏴷􏴸􏴀􏱢排队效果：通过使用连缀方法
-
++ 排队效果：通过使用连缀方法
+􏵣􏵤􏵥􏵦􏵧􏵨􏵩􏵪􏵫􏳽􏳾􏴽􏴾􏵣􏵤􏵥􏵦􏵧􏵨􏵩􏵪􏵫􏳽􏳾􏴽􏴾􏵣􏵤􏵥􏵦􏵧􏵨􏵩􏵪
 例如：
-
+```
        $(document).ready(function() {
             $('div.label').click(function() {
               var paraWidth = $('div.speech p').outerWidth();
@@ -73,6 +74,7 @@ string是适当的显示值，先使用.hide()方法可以把之前的display的
                 .animate({borderWidth: '5px'}, 'slow');
             });
       });
+```
 
 + 一组元素上的效果：
 
@@ -89,14 +91,15 @@ string是适当的显示值，先使用.hide()方法可以把之前的display的
 ###4单元课后习题
 
 (1)修改样式表，一开始先隐藏页面内容，当页面加载后，慢慢地淡入内容。
-
+```
       $(document).ready(function(){
         $('body').css('display','none');
         $('body').fadeIn(3000);
       });
+```
 
 (2)在鼠标悬停到段落上面时，给段落应用黄色背景。
-
+```
       $(document).ready(function(){
         $('p').mouseover(function(){
           $(this).css('backgroundColor', 'yellow')
@@ -105,9 +108,9 @@ string是适当的显示值，先使用.hide()方法可以把之前的display的
           });
         });
       });
-
+```
 (3)单击标题(<h2>)使其不透明度变为25%，同时添加20px的左外边距，当这两个效果完成后，把讲话文本变成50%的不透明度。
-
+```
       $(document).ready(function(){
         $('h2').on('click', function(){
           $(this)
@@ -123,9 +126,9 @@ string是适当的显示值，先使用.hide()方法可以把之前的display的
           });
         });
       });
-
+```
 (4)挑战：按下方向键时，使样式转换器向相应的方向平滑移动20像素；四个方向键的键码分别是37(左)、38(上)、39(右)、40(下)。
-
+```
       $(document).ready(function(){
         var key_left = 37;
         var key_up = 38;
@@ -169,3 +172,4 @@ string是适当的显示值，先使用.hide()方法可以把之前的display的
           };
         });
       });
+```

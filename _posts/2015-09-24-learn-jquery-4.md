@@ -1,175 +1,95 @@
 ---
 layout: post
-title:  "jQuery基础教程-学习笔记（3）"
-date:   2015-09-23 18:28:16
+title:  "jQuery基础教程-学习笔记（4）"
+date:   2015-09-24 18:28:16
 categories:
 ---
 
-### 样式和动画
+### DOM操作
 
-+ 使用的样式没有在样式表中定义，使用.css()方法
++ attr():访问和改变属性值，用法和css()相同。
 
-这个方法集合setter（设置方法）和getter（获取方法）于一体，获取某个样式属性值，只需要传入一个参数：属性名，
-设置样式需要传入属性名和属性值。
++ removeAttr():删除属性。
 
-获取：.css('backgroundColor)
-设置：.css('backgroundColor' , '#fff')
++ each():参数为匿名函数，该函数传递一个index参数，默认会自增，用这个函数操作前面每个选择的元素。
 
-+ .hide()和.show()方法就是.css('display','string')方法的简写。
++ text():获取前面选择的标签包含的值。加参数则为修改该值，但不会立即在页面呈现。
 
-string是适当的显示值，先使用.hide()方法可以把之前的display的属性值记住，
-在使用.show()时就可以调用之前的设置了。
++ html():同text，无参返回html形式的文本，加参数修改文本，以html方式。
 
-这两种方法还可以传入参数，控制速度。使用方法：.show('speed') ，speed包括`slow`,`normal`,`fast`。
++ end():结束当前查询，返回到最初。
 
-+ 淡入淡出使用.fadeIn('speed')和.fadeOut('speed')。
++ $():在括号中放入一组html元素后，通过insertAfter等方法就能改变整个DOM结构。
 
-+ 滑上滑下使用.slideDown('speed')和.slideUp('speed')。
++ 插入到其他元素前面：insertBefore()、before()，区别在于连缀方式。
 
-+ .slideToggle('speed')方法复合了.toggle()和.slideUp().slideDown()方法。
++ 插入到其他元素后面：insertAfter()、after()，区别在于连缀方式。
 
-+ .animate()可以创建控制更加细致的自定义动画。
++ 在其他元素中插入元素：prependTo()、prepend()，区别在于连缀方式。
 
-第一种形式：
-```
-      .animate({property1: 'value1', property2: 'value2'},
-      duration, easing, function() {
-          alert('The animation is finished.');
-        }
-```
++ appendTo():参数为已定义的容器，将前面选择的对象添加到该容器中，
 
-第二种形式：
-```
-      .animate({
-            property1: 'value1',
-            property2: 'value2'
-          }, {
-            duration: 'value',
-            easing: 'value',
-            specialEasing: {
-              property1: 'easing1',
-              property2: 'easing2'
-            },
-            complete: function() {
-              alert('The animation is finished.');
-            },
-            queue: true,
-            step: callback
-      });
-```
++ append():在当前添加元素。
 
-+ 排队效果：通过使用连缀方法
-􏵣􏵤􏵥􏵦􏵧􏵨􏵩􏵪􏵫􏳽􏳾􏴽􏴾􏵣􏵤􏵥􏵦􏵧􏵨􏵩􏵪􏵫􏳽􏳾􏴽􏴾􏵣􏵤􏵥􏵦􏵧􏵨􏵩􏵪
-例如：
-```
-       $(document).ready(function() {
-            $('div.label').click(function() {
-              var paraWidth = $('div.speech p').outerWidth();
-              var $switcher = $(this).parent();
-              var switcherWidth = $switcher.outerWidth();
-              $switcher
-                .css({position: 'relative'})
-                .animate({left: paraWidth - switcherWidth}, 'slow')
-                .animate({height: '+=20px'}, 'slow')
-                .animate({borderWidth: '5px'}, 'slow');
-            });
-      });
-```
++ wrap():在前面选择的元素外面添加参数中的标签。
 
-+ 一组元素上的效果：
++ remove():移除每个匹配的元素及其后代元素。但不实际移除。
 
-当在一个.animate()方法中以多个属性的方式应用时，是同时发生的；
++ empty():移除每个匹配的元素
 
-当以方法连缀的形式应用时，是按顺序发生的（排队效果）————除非queue选项值为false。
+###5单元练习
 
-+ 多组元素上的效果：
+(1)修改添加back top链接的代码，以便这些链接只从第四段后面才开始出现。
 
-默认情况下是同时发生的；
-
-当在另一个效果方法或者在.queue()方法的回调函数中应用时，是按顺序发生的（排序效果）。
-
-###4单元课后习题
-
-(1)修改样式表，一开始先隐藏页面内容，当页面加载后，慢慢地淡入内容。
 ```
       $(document).ready(function(){
-        $('body').css('display','none');
-        $('body').fadeIn(3000);
+        var $p = $('div.chapter p').eq(2).nextAll();
+        $('<a href="#top">back to top</a>').insertAfter($p);
+        $('<a id="top"></a>').prependTo('body');
       });
 ```
 
-(2)在鼠标悬停到段落上面时，给段落应用黄色背景。
-```
+(2)在单击back to top链接时，为每个链接后面添加一个新段落，其中包含You were here字样。确保链接仍然有效。
+
+
       $(document).ready(function(){
-        $('p').mouseover(function(){
-          $(this).css('backgroundColor', 'yellow')
-          .mouseout(function(){
-            $(this).css('backgroundColor', 'white')
-          });
+        $('<a href="#top">back to top</a>').insertAfter('div.chapter p');
+        $('a[href$="#top"]').on('click', function(){
+          $('<p>You were here</p>').insertAfter(this);
         });
       });
-```
-(3)单击标题(<h2>)使其不透明度变为25%，同时添加20px的左外边距，当这两个效果完成后，把讲话文本变成50%的不透明度。
-```
+
+(3)在单击作者名字时，把文本改为粗体(通过添加一个标签，而不是操作类或css属性)。
+
       $(document).ready(function(){
-        $('h2').on('click', function(){
-          $(this)
-          .fadeTo('slow', 0.25)
-          .animate({
-            paddingLeft: '+=200px'
-          },{
-            duration: 'slow',
-            queue:false
-          })
-          .queue(function(next) {
-            $('div.speech').fadeTo('slow', 0.5)
-          });
+        $('#f-author').on('click', function(){
+          $(this).html('<b>by Edwin A. Abbott</b>');
         });
       });
-```
-(4)挑战：按下方向键时，使样式转换器向相应的方向平滑移动20像素；四个方向键的键码分别是37(左)、38(上)、39(右)、40(下)。
-```
+
+(4)挑战:在随后单击粗体作者名字时，删除之前添加的元素(也就是在粗体文本与正常文本之间切换)。
+
       $(document).ready(function(){
-        var key_left = 37;
-        var key_up = 38;
-        var key_right = 39;
-        var key_down = 40;
-        var $switcher = $('#switcher');
-        $switcher.css('position', 'relative');
-        $(document).keyup(function(event){
-          switch(event.which){
-            case 37:
-              $switcher
-              .animate({
-                left: '-=20px'
-              },{
-                duration: 'fast'
-              })
-                break;
-            case 38:
-              $switcher
-              .animate({
-                top: '-=20px'
-              },{
-                duration: 'fast'
-              })
-              break;
-            case 39:
-              $switcher
-              .animate({
-                left: '+=20px'
-              },{
-                duration: 'fast'
-              })
-              break;
-            case 40:
-              $switcher
-             .animate({
-               top: '+=20px'
-             },{
-               duration: 'fast'
-             });
+        var simple = 'by Edwin A. Abbott';
+        var b_simple = '<b>by Edwin A. Abbott</b>';
+        $('#f-author').on('click', function(){
+          if($(this).html() == simple){
+            $(this).html(b_simple);
+          }else if($(this).html() == b_simple){
+            $(this).html(simple);
           };
         });
       });
-```
+
+(5)挑战：为正文中的每一个段落添加一个inhabitants类，但不能调用.addClass()方法。确保不影响现有的类。
+
+      $(document).ready(function(){
+        $('p').each(function(){
+          var a = $(this).attr('class');
+          if(a == null){
+            $(this).attr('class','inhabitants');
+          }else{
+            $(this).attr('class',a + ' inhabitants');
+          };
+        });
+      });
