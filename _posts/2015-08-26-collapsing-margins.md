@@ -22,44 +22,48 @@ categories:
 
 例如，
 
+```html
     <div class="a">
         A
     </div>
     <div class="b">
         B
     </div>
-
+```
 A有一个25px的底部margin而在它下面的B有一个20px的顶部margin
 
+```css
     .a{
       margin-bottom: 25px;
     }
     .b{
       margin-top: 20px;
     }
-
+```
 那么此时只有25像素的底部margin会被执行，两个元素之间的距离是25px，而不是预想中的45px（25+20）。
 
 到目前为止，我们只讨论了相邻元素的margin 折叠效应，但同样的事情对于父元素和子元素也是成立的。包括有几个子元素（即嵌套元素）的时候。
 
 例如:
 
+```html
     <div class="a">
         A
         <div class="b">
           B
         </div>
     </div>
-
+```
 CSS部分
 
+```css
     .a{
       margin-top: 25px;
     }
     .b{
       margin-top: 20px;
     }
-
+```
 A，B的顶部margin此时是25px，而不是45px。
 
 ### 特殊情况
@@ -69,22 +73,24 @@ A，B的顶部margin此时是25px，而不是45px。
 
 例如：
 
+```html
     <div class="a">
         A
     </div>
     <div class="b">
         B
     </div>
-
+```
 CSS部分：
 
+```css
     .a{
       margin-bottom: -25px;
     }
     .b{
       margin-top: 20px;
     }
-
+```
 此时A，B之间的距离是-5px.
 
 ### 什么情况可以阻止margin折叠

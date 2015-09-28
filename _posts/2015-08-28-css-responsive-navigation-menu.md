@@ -17,7 +17,7 @@ categories:
 
 ### HTML代码
 
-
+```html
       <nav>
       <label for="menu-toggle">☰</label>
       <input type="checkbox" id="menu-toggle"/>
@@ -27,28 +27,26 @@ categories:
         <li role="presentation"><a href="#">Contact</a></li>
       </ul>
       </nav>
-
+```
 我们要利用label元素的"for"属性，对应一个checkbox的id
 
-
+```html
       <label for="User">Click me</label>
       <input type="text" id="User" name="Name" />
-
+```
 
 上面的代码表示：当我们点击 `Clickme` 就等于input复选框被选中。
 
 ### CSS代码
 
-
+```css
       label {
       	display: none;
       }
       #menu-toggle {
       	display: none; /* hide the checkbox */
       }
-
       @media all and (max-width: 700px) and (min-width: 0px) {
-
       	label {
       		display: block;
       		float: right;
@@ -79,9 +77,8 @@ categories:
       	.header label:active .nav {
       		display: none;
       	}
-
       }
-
+```
 
 #### 实现弹出导航栏
 

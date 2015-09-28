@@ -32,7 +32,7 @@ string是适当的显示值，先使用.hide()方法可以把之前的display的
 
 第一种形式：
 
-```js
+```javascript
 .animate({property1: 'value1', property2: 'value2'},
 duration, easing, function() {
     alert('The animation is finished.');
@@ -41,7 +41,7 @@ duration, easing, function() {
 
 第二种形式：
 
-```js
+```javascript
 .animate({
       property1: 'value1',
       property2: 'value2'
@@ -59,12 +59,9 @@ duration, easing, function() {
       step: callback
 });
 ```
-
 + 排队效果：通过使用连缀方法
-􏵣􏵤􏵥􏵦􏵧􏵨􏵩􏵪􏵫􏳽􏳾􏴽􏴾􏵣􏵤􏵥􏵦􏵧􏵨􏵩􏵪􏵫􏳽􏳾􏴽􏴾􏵣􏵤􏵥􏵦􏵧􏵨􏵩􏵪
-例如：
 
-```js
+```javascript
 $(document).ready(function() {
     $('div.label').click(function() {
       var paraWidth = $('div.speech p').outerWidth();
@@ -95,7 +92,7 @@ $(document).ready(function() {
 
 (1)修改样式表，一开始先隐藏页面内容，当页面加载后，慢慢地淡入内容。
 
-```
+```javascript
 $(document).ready(function(){
   $('body').css('display','none');
   $('body').fadeIn(3000);
@@ -104,7 +101,7 @@ $(document).ready(function(){
 
 (2)在鼠标悬停到段落上面时，给段落应用黄色背景。
 
-```
+```javascript
 $(document).ready(function(){
   $('p').mouseover(function(){
     $(this).css('backgroundColor', 'yellow')
@@ -117,7 +114,7 @@ $(document).ready(function(){
 
 (3)单击标题使其不透明度变为25%，同时添加20px的左外边距，当这两个效果完成后，把讲话文本变成50%的不透明度。
 
-```
+```javascript
 $(document).ready(function(){
   $('h2').on('click', function(){
     $(this)
@@ -137,7 +134,7 @@ $(document).ready(function(){
 
 (4)挑战：按下方向键时，使样式转换器向相应的方向平滑移动20像素；四个方向键的键码分别是37(左)、38(上)、39(右)、40(下)。
 
-```
+```javascript
 $(document).ready(function(){
   var key_left = 37;
   var key_up = 38;

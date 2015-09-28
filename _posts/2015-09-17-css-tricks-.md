@@ -25,25 +25,28 @@ categories:
 
 HTML:
 
-      <header>
-        <h1>The Big Bang Theory</h1>
-      </header>
-
+```html
+<header>
+  <h1>The Big Bang Theory</h1>
+</header>
+```
 CSS:
 
-      header {
-        background-image: url("TheBigBangTheory.png");
-        background-repeat: no-repeat;
-        background-size: contain;
-        padding-top: 120px;
-      }
-
+```css
+header {
+  background-image: url("TheBigBangTheory.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  padding-top: 120px;
+}
+```
 ##### 实现原理:
 
 我们通过设置div的padding预留出存放图片的位置，background-position控制图片的位置，文字和图片的布局可以是上下，可以是左右，则设置padding-top、padding-left来控制。
 
-      padding-top: 120px
-
+```css
+padding-top: 120px
+```
 通常图片的的大小是固定的。在这里预留的空间的值写图片的高就可以了。
 
 ##### codepen在线demo

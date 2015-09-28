@@ -38,22 +38,24 @@ HTML5 引入了一系列的语义标签，如 header, footer, article, section, 
 
 那么对应的html应该是这样的：
 
-      <nav class="main-nav">
-        <ul>
-          <li><a href="#">archive</a></li>
-          <li><a href="#">projects</a></li>
-          <li><a href="#">about</a></li>
-        </ul>
-      </nav>
-
+```html
+<nav class="main-nav">
+  <ul>
+    <li><a href="#">archive</a></li>
+    <li><a href="#">projects</a></li>
+    <li><a href="#">about</a></li>
+  </ul>
+</nav>
+```
 很明显，当我们看到一个 nav 就知道是导航，不需要去看它的风格。这也是分离内容和页面的表现方法。
 
 对于模块语义的理解不同人会不一样，比如导航内的 4 个链接并不一定非要认为是一个无编号列表，也可以简单地将他们看做 4 个 a 标签的堆叠，从而对应的代码为：
 
-      <nav class="main-nav">
-          <a href="#">archive</a>
-          <a href="#">projects</a>
-          <a href="#">about</a>    
-      </nav>
-      
+```html
+<nav class="main-nav">
+    <a href="#">archive</a>
+    <a href="#">projects</a>
+    <a href="#">about</a>    
+</nav>
+```      
 但总体上使用的标签不能和语义本身偏离太多。

@@ -21,11 +21,11 @@ $(document).ready(function() {
 
 ```javascript
 $(document).ready(function() {
-  $('#some-id').bind('click', function() {
-    $(this).addClass('selected'); //关键字this引用的就是#some-id
-    alert("you have clicked some-id");
-    $(this).removeClass('selected'); //去除class
-　});
+    $('#some-id').bind('click', function() {
+        $(this).addClass('selected'); //关键字this引用的就是#some-id
+        alert("you have clicked some-id");
+        $(this).removeClass('selected'); //去除class
+　　});
 });        
 ```
 希望用户单击按钮时执行，引入.bind()方法
@@ -42,9 +42,9 @@ $(document).ready(function() {
 $(document).ready(function(){
   $('#switcher h3').toggle(function(){
     $('#switcher button').addClass('hidden');
-  },function(){
-    $('#switcher button').removeClass('hidden');
-  });
+    },function(){
+      $('#switcher button').removeClass('hidden');
+    });
 });
 ```
 在第一次点击后，所有按钮(class="#switcher")都会隐藏起来，第二次点击则又恢复了它们的可见性。
@@ -100,11 +100,11 @@ $(document).ready(function(){
 ```javascript
 $(document).ready(function(){
   $('.chapter-title').dblclick(function(){
-    $(this).siblings().toggleClass('hidden');
+  $(this).siblings().toggleClass('hidden');
   });
 });
 ```
-(3)当用户按下向右方向键时，切换到下一个body类；右方向键的键码是39。
+(3)当用户按下向右方向键时，切换到下一个body类；右方向键的键码是39.
 
 ```javascript
 $(document).ready(function(){

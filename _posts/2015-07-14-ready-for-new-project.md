@@ -65,22 +65,22 @@ html标准模板准备好后，我们还需要一个特别好的前端自动化�
 + 全局安装 gulp：
 
 ```
-    $ npm install --global gulp
+$ npm install --global gulp
 ```
 + 创建项目文件
 
 ```
-    mkdir project
+mkdir project
 ```
 + 初始化项目并创建package.json文件
 
 ```
-    npm init
+npm init
 ```
 + 将gulp安装到当前项目下，并作为依赖写入package.json
 
 ```
-    npm install gulp --save-dev
+npm install gulp --save-dev
 ```
 
 ###### 使用
@@ -100,12 +100,12 @@ gulp.task('default', function() {
 >首先我们需要安装Browser Sync:
 
 >```
-      $ npm install browser-sync --save-dev
+  $ npm install browser-sync --save-dev
 ```
 
 >然后配置gulpfile.js文件:
 
->```
+>```vim
 var gulp = require('gulp');
 var browserSync = require('browser-sync');
 gulp.task('browserSync', function() {
@@ -125,7 +125,7 @@ gulp.task('watch', ['browserSync'], function (){
 
 
 ```
-    $ gulp task-name
+$ gulp task-name
 ```
 
 自此，我们做的准备差不多完成了，现在就开始开发一个前端项目了！

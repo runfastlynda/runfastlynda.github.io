@@ -10,16 +10,18 @@ categories:
 
 ### HTML代码
 
+```html
     <body style="height: 3000px;">
     	<div class="go-top dn" id="go-top">
     	    <a href="javascript:;" class="go"><img src="backtotop.png"></a>
     	</div>
     </body>
-
+```
 有了上面的html后，当我们点击有箭头的这个图片时，就会自动跳转到页面的顶部。
 
 ### CSS代码
 
+```css
     .dn {
     	display: none;
     }
@@ -31,13 +33,14 @@ categories:
     	width: 46px;
     	z-index: 999;
     }
-
+```
 默认情况下我们给包含跳转链接的div设置为隐藏，通过position：fixed的属性实现侧边屏幕绝对定位。
 
 ### javascript代码
 
 开始时跳转链接是隐藏的，所以使用jQuery要实现的效果是：浏览器滚动条处于最顶部的时候，跳转链接处于隐藏状态。当滚动条向下滚动后，跳转链接逐渐显出，当点击跳转链接后，页面逐渐滚动至顶部，跳转链接逐渐消失。
 
+```javascript
       $(function(){
       	$(window).on('scroll',function(){
       		var st = $(document).scrollTop();
@@ -57,6 +60,6 @@ categories:
       		$('html,body').animate({'scrollTop':0},500);
       	});
       });
-
+```
 
 [在线codepen演示地址](http://codepen.io/runfastlynda/pen/rONMrj)

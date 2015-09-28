@@ -15,104 +15,107 @@ HTMLActuator函数有如下结构：![](http://7xjufd.dl1.z0.glb.clouddn.com/blo
 
 紧接着window.requestAnimationFrame()这个方法是用来在页面重绘之前，通知浏览器调用接受的函数。
 
-    HTMLActuator.prototype.actuate = function (grid, metadata) {
-      var self = this;
-      window.requestAnimationFrame(function () {
-        self.clearContainer(self.tileContainer);
+```javascript
+HTMLActuator.prototype.actuate = function (grid, metadata) {
+  var self = this;
+  window.requestAnimationFrame(function () {
+    self.clearContainer(self.tileContainer);
 
-        //遍历cells，如果存在cell，就添加tile
-        grid.cells.forEach(function (column) {
-          column.forEach(function (cell) {
-            if (cell) {
-              self.addTile(cell);
-            }
-          });
-        });
-
-        //更新分数
-        self.updateScore(metadata.score);
-        self.updateBestScore(metadata.bestScore);
-
-        //判断游戏的输赢
-        if (metadata.terminated) {
-          if (metadata.over) {
-            self.message(false); // You lose
-          } else if (metadata.won) {
-            self.message(true); // You win!
-          }
+    //遍历cells，如果存在cell，就添加tile
+    grid.cells.forEach(function (column) {
+      column.forEach(function (cell) {
+        if (cell) {
+          self.addTile(cell);
         }
       });
-    };
+    });
 
+    //更新分数
+    self.updateScore(metadata.score);
+    self.updateBestScore(metadata.bestScore);
+
+    //判断游戏的输赢
+    if (metadata.terminated) {
+      if (metadata.over) {
+        self.message(false); // You lose
+      } else if (metadata.won) {
+        self.message(true); // You win!
+      }
+    }
+  });
+};
+```
 clearContainer方法，addTile方法，updateScore方法，updateBestScore方法，message方法我们在prototype上都可以找到。
 
 比较重要的是在HTMLActuator的prototype上定义的addTile方法。
 
-    HTMLActuator.prototype.addTile = function (tile) {
-      var self = this;
+```javascript
+HTMLActuator.prototype.addTile = function (tile) {
+  var self = this;
 
-      var wrapper   = document.createElement("div");
-      var inner     = document.createElement("div");
-      var position  = tile.previousPosition || { x: tile.x, y: tile.y };
-      var positionClass = this.positionClass(position);
-      var classes = ["tile", "tile-" + tile.value, positionClass];
+  var wrapper   = document.createElement("div");
+  var inner     = document.createElement("div");
+  var position  = tile.previousPosition || { x: tile.x, y: tile.y };
+  var positionClass = this.positionClass(position);
+  var classes = ["tile", "tile-" + tile.value, positionClass];
 
-      if (tile.value > 2048) classes.push("tile-super");
+  if (tile.value > 2048) classes.push("tile-super");
 
-      this.applyClasses(wrapper, classes);
+  this.applyClasses(wrapper, classes);
 
-      inner.classList.add("tile-inner");
-      inner.textContent = tile.value;
+  inner.classList.add("tile-inner");
+  inner.textContent = tile.value;
 
 
-      if (tile.previousPosition) {
-        //确保tile在先前的位置上呈现
-        window.requestAnimationFrame(function () {
-          classes[2] = self.positionClass({ x: tile.x, y: tile.y });
-          self.applyClasses(wrapper, classes);
-          //更新位置
-        });
-      } else if (tile.mergedFrom) {
-        classes.push("tile-merged");
-        this.applyClasses(wrapper, classes);
-        //通过移动，有合并情况，合并后的tile
-        tile.mergedFrom.forEach(function (merged) {
-          self.addTile(merged);
-        });
-      } else {
-        // 什么都没有的添加一个新的tile
-        classes.push("tile-new");
-        this.applyClasses(wrapper, classes);
-      }
+  if (tile.previousPosition) {
+    //确保tile在先前的位置上呈现
+    window.requestAnimationFrame(function () {
+      classes[2] = self.positionClass({ x: tile.x, y: tile.y });
+      self.applyClasses(wrapper, classes);
+      //更新位置
+    });
+  } else if (tile.mergedFrom) {
+    classes.push("tile-merged");
+    this.applyClasses(wrapper, classes);
+    //通过移动，有合并情况，合并后的tile
+    tile.mergedFrom.forEach(function (merged) {
+      self.addTile(merged);
+    });
+  } else {
+    // 什么都没有的添加一个新的tile
+    classes.push("tile-new");
+    this.applyClasses(wrapper, classes);
+  }
 
-      // 把inner盒子添加wrapper盒子中
-      wrapper.appendChild(inner);
+  // 把inner盒子添加wrapper盒子中
+  wrapper.appendChild(inner);
 
-      // 把wrapper放到tileContainer这个盒子里
-      this.tileContainer.appendChild(wrapper);
-    };
-
+  // 把wrapper放到tileContainer这个盒子里
+  this.tileContainer.appendChild(wrapper);
+};
+```
 
 这里还定义了更新分数的方法，先把新的成绩更新，然后又给加分这一行为添加了动画
 
-    HTMLActuator.prototype.updateScore = function (score) {
-      this.clearContainer(this.scoreContainer);
+```javascript
+HTMLActuator.prototype.updateScore = function (score) {
+  this.clearContainer(this.scoreContainer);
 
-      var difference = score - this.score;
-      this.score = score;
+  var difference = score - this.score;
+  this.score = score;
 
-      this.scoreContainer.textContent = this.score;
+  this.scoreContainer.textContent = this.score;
 
-      //定义了分数更新的动画
-      if (difference > 0) {
-        var addition = document.createElement("div");
-        addition.classList.add("score-addition");
-        addition.textContent = "+" + difference;
+  //定义了分数更新的动画
+  if (difference > 0) {
+    var addition = document.createElement("div");
+    addition.classList.add("score-addition");
+    addition.textContent = "+" + difference;
 
-        this.scoreContainer.appendChild(addition);
-      }
-    };
-
+    this.scoreContainer.appendChild(addition);
+  }
+};
+```
 
 其他方法：
 
