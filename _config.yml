@@ -18,5 +18,11 @@ markdown: redcarpet
 redcarpet:
   extensions: ["smart", "tables", "no_intra_emphasis", "fenced_code_blocks", "autolink", "strikethrough", "superscript", "with_toc_data"]
 
+comments :
+    provider : duoshuo
+    duoshuo :
+      short_name : short_name
+    disqus :
+      short_name : short_name
 
 
