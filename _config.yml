@@ -22,7 +22,6 @@ comments :
     provider : duoshuo
     duoshuo :
       short_name : short_name
-    disqus :
-      short_name : short_name
+
 
 
