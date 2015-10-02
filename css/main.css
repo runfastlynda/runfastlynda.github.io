@@ -232,6 +232,23 @@ a:hover {
     border: 0; }
   .markdown pre code:before, .markdown pre code:after {
     content: normal; }
+.about{
+  padding: 40px !important;
+}
+
+.about p{
+  margin: 10px 0;
+}
+.about img{
+  width: 200px;
+  display: block;
+  margin: 20px 0 20px -12px;
+}
+
+.about a{
+  color: #000;
+}
+
 
 footer {
   text-align: center;

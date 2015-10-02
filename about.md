@@ -1,11 +1,18 @@
 ---
 layout: page
-title: About
-permalink: /about/
+title: About me
+categories:
 ---
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](http://jekyllrb.com/)
+我叫Lynda，一位喜爱设计的前端工程师。
 
-You can find the source code for the Jekyll new theme at: [github.com/jglovier/jekyll-new](https://github.com/jglovier/jekyll-new)
+#### 微信公众号:
 
-You can find the source code for Jekyll at [github.com/jekyll/jekyll](https://github.com/jekyll/jekyll)
+『 小白变怪兽 』是我每天前端学习过程中用来收集那些碎片知识的平台，一定积累后我会把它们汇总成博文，欢迎大家关注。
+
+![](http://7xklz5.com1.z0.glb.clouddn.com/about.3.jpg)
+
+#### 联系我:
+
+runfastlynda#gmail.com    
+
