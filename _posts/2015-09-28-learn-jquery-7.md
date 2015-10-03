@@ -55,6 +55,60 @@ $.mathUtils.average(average);
 
 + .hasClass()只会检查匹配的第一个元素，想要匹配多个元素使用.each()方法，会执行隐性迭代。
 
+### 高级选择符与遍历
+
++ Sizzle是一个独立的CSS选择符引擎，jQuery之父John Resig发表的新javascript开源项目。
+
++ 在用户点击某个链接时，使用return false 阻止每个链接的默认行为。
+
+```javascript
+$(document).ready(function(){
+  $('#topics a').click(function(){
+    $(this).addClass('selected');
+    return false;//阻止链接的默认行为
+  })
+})
+```
+
++ 自定义选择符:has() 这个选择符从当前被选中的元素中挑选出那些包含指定元素的元素。
+
++ 自定义选择符:contains()只会匹配那些某个单元格中包含指定文本的行，如果在它的外面再加上:not()，也就得到不包含指定文本的行。
+
++ :not()方法可以接收一个回调函数，检测元素的时候调用。
+
++ :nth-child(even)可以实现自定义选择符:even的效果，:odd也一样。
+
++ :visible（对应的伪类:hidden）会排除由于各种原因隐藏的元素，包括display值为none以及width和height属性设置为0。
+
++ 提高代码的可读性的一种方式是把代码片段封装为可以重用的组件。
+
++ 最容易添加的选择器是伪类，使用$.extend()函数可以实现。例如：定义一个伪类:grounp
+
+```javascript
+(function($){
+  $.extend($.expr[':'],{
+    group: function(element,index,matches,set){
+      var num = parseInt(matches[3],10);
+      if (isNaN) {
+        return false;
+      }
+      return index % (num * 2) < num ;
+    }
+  })
+})(jQuery)
+
+```
+
++ 开发人员的一条经验法则，那就是人的时间总比机器的时间更值钱。
+
++ 尽可能使用CSS规范中规定的选择符，除非没有可使用的jQuery的自定义选择符。
+
++ .prevObject属性保存着调用遍历方法的那个jQuery对象，.context属性包含一个dom节点，.selector属性中保存着创建最终对象的选择符表达式。
+
++ .pushStack()方法接收一批dom元素，并将它们添加到栈中。方便后面.andself(),.end()的调用。
+
++ dom遍历的性能问题：最低限度的重复选择符和遍历方法，使用连缀和缓存对象。
+
 
 ### 第八章习题
 1.创建 .slideFadeIn() 和 .slideFadeOut() 的插件方法，把不透明度动画方法 .fadeIn() 和 .fadeOut() 以及高度动画方法 .slideDown() 和 .slideUp() 结合起来。

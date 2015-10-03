@@ -74,7 +74,7 @@ $('div[ol]')
 >注意：方括号左边的才是选择的目标对象，方括号里的筛选的条件
 
 ```javascript
-      $('a[href^=mailto:]').addClass('mailto');
+$('a[href^=mailto:]').addClass('mailto');
 ```
 选择href属性以mailto为开头的a
 

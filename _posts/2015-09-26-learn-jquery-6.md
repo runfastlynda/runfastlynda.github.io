@@ -82,6 +82,96 @@ $(document).ready(function(){
   }).appendTo('#books-controls');
 })
 ```
+### 高级事件处理
+
++ 􏰤􏴞􏰞􏲁􏸇􏴰􏱺􏺊􏷷􏰙􏰑􏰮􏲬􏷄􏲋􏺊􏷷􏰑􏹋􏶦􏶙􏶚当鼠标移动到照片上时显示照片的详细信息，可以有几种方法实现。
+
+.hover()方􏱜法
+
+```javascript
+$(document).ready(function() {
+  $('div.photo').hover(function() {
+    $(this).find('.details').fadeTo('fast', 0.7);
+  }, function() {
+    $(this).find('.details').fadeOut('fast');
+  });
+});
+```
+􏱯给mouseenter和􏲑mouseleave绑定事件的方法
+
+```javascript
+$(document).ready(function() {
+  $('div.photo').on('mouseenter mouseleave', function(event) {
+    var $details = $(this).find('.details');
+    if (event.type == 'mouseenter') {
+      $details.fadeTo('fast', 0.7);
+    } else {
+      $details.fadeOut('fast');
+    }
+  });
+});􏸰􏳤
+```
++ 使用事件委托把事件添加到通过Ajax调用的元素上。
+
++ jQuery的.on()方法内内置了委托管理能力。例如：
+
+```javascript
+$(document).ready(function() {
+  $(document).on('mouseenter mouseleave', 'div.photo',
+  function(event) {
+    var $details = $(this).find('.details');
+    if (event.type == 'mouseenter') {
+      $details.fadeTo('fast', 0.7);
+    } else {
+      $details.fadeOut('fast');
+    }
+  });
+});
+```
+
++ 自定义事件必须在代码中通过手工方式来触发。从某种意义讲，自定义事件类似于我们的平常定义的函数，因为他们是一个预定义的代码块，可以在脚本中的其他位置调用执行。例如：
+
+```javascript
+(function($) {
+  $(document).on('nextPage', function() {
+    var url = $('#more-photos').attr('href');
+    if (url) {
+      $.get(url, function(data) {
+        $('#gallery').append(data);
+      });
+    }
+  });
+  var pageNum = 1;
+  $(document).on('nextPage', function() {
+    pageNum++;
+    if (pageNum < 20) {
+      $('#more-photos').attr('href', 'pages/' + pageNum + '.html');
+    }
+    else {
+      $('#more-photos').remove();
+    }
+  });
+})(jQuery);
+```
+上面的代码是一次触发导致多个事件的绑定。
+
++ 无穷滚动，通过滚动触发上面定义的nextPage事件。
+
+```javascript
+(function($) {
+  function checkScrollPosition() {
+    var distance = $(window).scrollTop() + $(window).height();
+    if ($('#container').height() <= distance) {
+      $(document).trigger('nextPage');
+    }
+  }
+  $(document).ready(function() { $(window).scroll(checkScrollPosition).trigger('scroll');
+￼￼￼￼  });
+})(jQuery);
+```
+
++ 无穷滚动最大的问题是性能问题，不断的计算窗口和页面的大小，导致页面反应迟钝，此时需要节流事件。限制一些无所谓的计算。
+
 ### 第七单元练习
 
 (1)把幻灯片的切换周期延长到1.5秒，把动画效果修改为下一张幻灯片淡入之前，前一张幻灯片淡出。请参考Cycle插件的文档，找到实现上述功能的选项。
@@ -136,66 +226,66 @@ $(document).ready(function(){
 
 ```javascript
 $(document).ready(function() {
-    var stop_flag = 1;
-    var $books = $('#books').cycle({
-        timeout: 2000,
-        speed: 200,
-        pause: true,
-        nowrap: 1,//使幻灯片只播放一遍，不循环
-        before: function() {
-            $('#slider').slider('value', $('#books li').index(this));
-        },
-        end: function(){
-            $('button').click(function(event){
-                $(this).effect('shake', {
-                    distance: 10
-                });
+  var stop_flag = 1;
+  var $books = $('#books').cycle({
+    timeout: 2000,
+    speed: 200,
+    pause: true,
+    nowrap: 1,//使幻灯片只播放一遍，不循环
+    before: function() {
+      $('#slider').slider('value', $('#books li').index(this));
+    },
+    end: function(){
+      $('button').click(function(event){
+        $(this).effect('shake', {
+          distance: 10
+        });
+      });
+      stop_flag = 0;
+    }//end回掉函数可以和autostop或者nowrap配合使用
+  });
+  if ( $.cookie('cyclePaused') ) {
+    $books.cycle('pause');
+  }
+  var $controls = $('<div id="books-controls"></div>').insertAfter($books);
+  $('<button>Pause</button>').click(function(event) {
+    if(stop_flag == 1){
+      event.preventDefault();
+      $books.cycle('pause');
+      $.cookie('cyclePaused', 'y');
+    };
+  }).button({
+    icons: {primary: 'ui-icon-pause'}
+  }).appendTo($controls);
+    $('<button>Resume</button>').click(function(event) {
+      if(stop_flag == 1){
+        event.preventDefault();
+        var $paused = $('ul:paused');
+        if ($paused.length) {
+            $paused.cycle('resume');
+            $.cookie('cyclePaused', null);
+        }else {
+            $(this).effect('shake', {
+                distance: 10
             });
-            stop_flag = 0;
-        }//end回掉函数可以和autostop或者nowrap配合使用
-    });
-    if ( $.cookie('cyclePaused') ) {
-        $books.cycle('pause');
-    }
-    var $controls = $('<div id="books-controls"></div>').insertAfter($books);
-    $('<button>Pause</button>').click(function(event) {
-        if(stop_flag == 1){
-            event.preventDefault();
-            $books.cycle('pause');
-            $.cookie('cyclePaused', 'y');
-        };
+        };    
+      };
     }).button({
-        icons: {primary: 'ui-icon-pause'}
+      icons: {primary: 'ui-icon-play'}
     }).appendTo($controls);
-        $('<button>Resume</button>').click(function(event) {
-            if(stop_flag == 1){
-                event.preventDefault();
-                var $paused = $('ul:paused');
-                if ($paused.length) {
-                    $paused.cycle('resume');
-                    $.cookie('cyclePaused', null);
-                }else {
-                    $(this).effect('shake', {
-                        distance: 10
-                    });
-                };    
-            };
-        }).button({
-            icons: {primary: 'ui-icon-play'}
-        }).appendTo($controls);
 
-    $('<div id="slider"></div>').slider({
-        min: 0,
-        max: $('#books li').length - 1,
-        slide: function(event, ui) {
-            if(stop_flag == 1){
-                $books.cycle(ui.value);
-            }else{
-                $(this).effect('shake', {
-                    distance: 10
-                });
-            };
-        }
-    }).appendTo($controls);
+  $('<div id="slider"></div>').slider({
+    min: 0,
+    max: $('#books li').length - 1,
+    slide: function(event, ui) {
+      if(stop_flag == 1){
+        $books.cycle(ui.value);
+      }else{
+        $(this).effect('shake', {
+            distance: 10
+        });
+      };
+    }
+  }).appendTo($controls);
 });
 ```
