@@ -128,4 +128,4 @@ function buildRows(rows) {
 
 + 编写CSS挂钩
 
-一个挂钩由针对元素的get方法和set方法构成。为了保持我们的例子尽量简单,这里只定义了set方法。
+一个挂钩由针对元素的get方法和set方法构成。
