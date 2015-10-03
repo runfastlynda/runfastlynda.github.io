@@ -115,114 +115,111 @@ $(document).ready(function(){
 
 ```javascript
 (function ($) {
-    $.fn.slideFadeIn = function () {
-        return this.each(function () {
-            // 用 fadeIn() 效果不明显
-            $(this).slideDown('slow').fadeTo('slow', 1.0);
-        });
-    };
-    $.fn.slideFadeOut = function () {
-        return this.each(function () {
-            // 用 fadeOut() 效果不明显
-            $(this).fadeTo('slow', 0.5).slideUp('slow');
-        });
-    };
+  $.fn.slideFadeIn = function () {
+    return this.each(function () {
+    // 用 fadeIn() 效果不明显
+      $(this).slideDown('slow').fadeTo('slow', 1.0);
+    });
+  };
+  $.fn.slideFadeOut = function () {
+    return this.each(function () {
+    // 用 fadeOut() 效果不明显
+      $(this).fadeTo('slow', 0.5).slideUp('slow');
+    });
+  };
 })(jQuery);
 ```
 2.扩展 .shadow() 方法的可定制能力，让插件用户可以指定元素副本的 z 轴索引。为提示条控件添加一个 .isOpen() 子方法，在提示条正在显示的时候返回 true，而在其他时候返回 false。
 
 ```javascript
 (function ($) {
-    $.fn.shadow = function (opts) {
-        var options = $.extend($.fn.shadow.defaults, opts);
-        return this.each(function () {
-            var $originalElement = $(this);
-            for (var i = 0; i < options.copies; i++) {
-                var offset = options.copyOffset(i);
-                $originalElement
-                    .clone()
-                    .css({
-                        position: 'absolute',
-                        left: $originalElement.offset().left + offset.x,
-                        top: $originalElement.offset().top + offset.y,
-                        margin: 0,
-                        opacity: options.opacity
-                    })
-                    .appendTo('body');
-            }
-        });
-    }
+  $.fn.shadow = function (opts) {
+    var options = $.extend($.fn.shadow.defaults, opts);
+    return this.each(function () {
+      var $originalElement = $(this);
+      for (var i = 0; i < options.copies; i++) {
+        var offset = options.copyOffset(i);
+        $originalElement
+        .clone()
+        .css({
+          position: 'absolute',
+          left: $originalElement.offset().left + offset.x,
+          top: $originalElement.offset().top + offset.y,
+          margin: 0,
+          opacity: options.opacity
+        })
+        .appendTo('body');
+      }
+    });
+  }
 })(jQuery);
 
 $.fn.shadow.defaults = {
-    copies: 5,
-    opacity: 0.1,
-    copyOffset: function (index) {
-        return {
-            x: index,
-            y: index
-        };
-    },
+  copies: 5,
+  opacity: 0.1,
+  copyOffset: function (index) {
+    return {
+      x: index,
+      y: index
+    };
+  },
 };
 
 (function ($) {
-    $.widget('ljq.tooltip', {
-        options: {
-            offsetX: 10,
-            offsetY: 10,
-            content: function () {
-                return $(this).data('tooltip-text');
-            }
-        },
-        _create: function () {
-            this.isTooltipOpen = false;
-            this._tooltipDiv = $('<div></div>')
-                .addClass('ljq-tooltip-text ' + 'ui-widget ui-state-highlight ui-corner-all')
-                .hide().appendTo('body');
-            this.element
-                .addClass('ljq-tooltip-trigger')
-                .on('mouseenter.ljq-tooltip', $.proxy(this._open, this))
-                .on('mouseleave.ljq-tooltip', $.proxy(this._close, this));
-        },
-        destroy: function () {
-            this._tooltipDiv.remove();
-            // this.element 不就是 $(this) 吗？
-            this.element
-                .removeClass('ljq-tooltip-trigger')
-                .off('.ljq-tooltip');
-            $.Widget.prototype.destroy.apply(this, arguments);
-
-        },
-        isOpen: function () {
-            return this.isTooltipOpen;
-        },
-        _open: function () {
-            if (!this.options.disabled) {
-                var elementOffset = this.element.offset();
-                this._tooltipDiv.css({
-                    position: 'absolute',
-                    left: elementOffset.left + this.options.offsetX,
-                    top: elementOffset.top + this.element.height() + this.options.offsetY
-                }).text(this.options.content.call(this.element[0]));
-                this._tooltipDiv.show();
-                this.isTooltipOpen = true;
-                this._trigger('open');
-            }
-        },
-        open: function () {
-            this._open();
-
-        },
-        _close: function () {
-            this._tooltipDiv.hide();
-            this._trigger('close');
-            this.isTooltipOpen = false;
-        },
-        close: function () {
-            this._close();
-        }
-
-    });
+  $.widget('ljq.tooltip', {
+    options: {
+      offsetX: 10,
+      offsetY: 10,
+      content: function () {
+          return $(this).data('tooltip-text');
+      }
+    },
+    _create: function () {
+      this.isTooltipOpen = false;
+      this._tooltipDiv = $('<div></div>')
+        .addClass('ljq-tooltip-text ' + 'ui-widget ui-highlight ucorner-all')
+      .hide().appendTo('body');
+      this.element
+        .addClass('ljq-tooltip-trigger')
+        .on('mouseenter.ljq-tooltip', $.proxy(this._open, this))
+        .on('mouseleave.ljq-tooltip', $.proxy(this._close, this));
+    },
+    destroy: function () {
+      this._tooltipDiv.remove();
+      this.element
+      .removeClass('ljq-tooltip-trigger')
+      .off('.ljq-tooltip');
+      $.Widget.prototype.destroy.apply(this, arguments);
+    },
+    isOpen: function () {
+      return this.isTooltipOpen;
+    },
+    _open: function () {
+      if (!this.options.disabled) {
+        var elementOffset = this.element.offset();
+        this._tooltipDiv.css({
+          position: 'absolute',
+          left: elementOffset.left + this.options.offsetX,
+          top: elementOffset.top + this.element.height() + this.options.offsetY
+        })
+        .text(this.options.content.call(this.element[0]));
+          this._tooltipDiv.show();
+          this.isTooltipOpen = true;
+          this._trigger('open');
+      }
+    },
+    open: function () {
+      this._open();
+    },
+    _close: function () {
+      this._tooltipDiv.hide();
+      this._trigger('close');
+      this.isTooltipOpen = false;
+    },
+    close: function () {
+      this._close();
+    }
+  });
 })(jQuery);
 
 ```
@@ -230,33 +227,33 @@ $.fn.shadow.defaults = {
 
 ```javascript
 $('a').bind('tooltipopen', function() {
-    console.log('tooltipopen event triggered');
+  console.log('tooltipopen event triggered');
 });
 ```
 4.（挑战）自定义提示条部件的 content 选项，通过 AJAX 取得链接的 href 属性指向的页面的内容，将取得的内容作为提示条的文本。
 
 ```javascript
-    $('a').tooltip({
-        content: function () {
-            var url = $(this).attr('href');
-            var result = null;
-            $.ajax({
-                url: url,
-                type: 'get',
-                dataType: 'html',
-                async: false,
-                success: function (data) {
-                    result = data;
-                }
-            });
-            return result;
-        }
+$('a').tooltip({
+  content: function () {
+    var url = $(this).attr('href');
+    var result = null;
+    $.ajax({
+      url: url,
+      type: 'get',
+      dataType: 'html',
+      async: false,
+      success: function (data) {
+        result = data;
+      }
     });
+    return result;
+  }
+});
 ```
 5.（挑战）为提示条部件提供一个新的 effect 选项，如果指定该选项，则用该名字指定的 jQuery UI 效果显示或隐藏提示条。
 
 ```javascript
 if (this.options.effect) {
-    this._tooltipDiv.effect(this.options.effect, {distance: 10, duration: 80});
+  this._tooltipDiv.effect(this.options.effect, {distance: 10, duration: 80});
 }
 ```
