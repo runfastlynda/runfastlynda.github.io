@@ -25,7 +25,7 @@ $(document).ready(function() {
 
 + 为已有的文本添加链接
 
-.wrapInner()方法,这个方法会把一个新元素(在这里就是<a>元素)放到匹配元素的内部, 同时包含匹配元素的子元素。
+.wrapInner()方法,这个方法会把一个新元素(在这里就是a元素)放到匹配元素的内部, 同时包含匹配元素的子元素。
 
 ```javascript
 $(document).ready(function() {
@@ -36,7 +36,7 @@ $(document).ready(function() {
     .addClass('sort');
 });
 ```
-使用.slice()方法跳过每个表格的第一个<th>元素,同时也没有必要为封面图片加标签或排序。给其他表头(<th>)元素添加了sort类,区分不可以用来排序的表头。
+使用.slice()方法跳过每个表格的第一个th元素,同时也没有必要为封面图片加标签或排序。给其他表头(th)元素添加了sort类,区分不可以用来排序的表头。
 
 + 简单的JavaScript数组排序：
 
@@ -86,7 +86,7 @@ $headers.on('click', function(event) {
 与排序有关的最后一项增强,是实现既能够按升序(ascending)排序也能够按降序 (descending)排序。
 
 ```javascript
-￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼￼if (keyA < keyB) return -sortDirection;
+if (keyA < keyB) return -sortDirection;
 if (keyA > keyB) return sortDirection;
 return 0;
 ```
