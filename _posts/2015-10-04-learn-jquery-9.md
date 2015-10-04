@@ -74,7 +74,7 @@ $(document).ready(function() {
 
 + 服务器返回了错误状态码,例如403 Forbidden、404 Not Found或500 Internet Server Error。
 + 服务器返回了间接的状态码,例如301 Moved Permanently。状态码为304 Not Modified的 异常不会触发错误,因为浏览器可以正确地处理这种情况。
-+ 服务器返回的数据不能按照指定方式正确解析(例如,在dataType指定为json时,返回 的不是有效的JSON数据)。
++ 服务器返回的数据不能按照指定方式正确解析(例如,在dataType指定为json时,返回的不是有效的JSON数据)。
 + XMLHttpRequest对象调用了.abort()方法。
 
 有些错误可以立即检测到,而有些情况则 会导致请求到最终错误响应之间产生很长的时间延迟。在没有既定的服务器端超时机制的情况下,我们可以在客户端强制设定请求的超时。通过给
