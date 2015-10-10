@@ -24,7 +24,7 @@ $(document).ready(function(){
 			},
 			error: function(){
 				var img = $(document.createElement('img')); 
-				img.attr('src', '../img/1.jpg');
+				img.attr('src', '../img/sparrow.png');
 				self.prepend(img);
 			}
 		});
