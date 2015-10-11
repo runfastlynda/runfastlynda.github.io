@@ -11,7 +11,7 @@ $(document).ready(function(){
 			}
 			bookId = m;
 		}	
-		var doubanBookApi = doubanApi+bookId[1]+'APIKey=018f55f54b5eb02904ae01dfe21c107b';
+		var doubanBookApi = doubanApi+bookId[1];
 		$.ajax({
 			url: doubanBookApi,
 			type: "get",
