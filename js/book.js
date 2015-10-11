@@ -15,6 +15,7 @@ $(document).ready(function(){
 		$.ajax({
 			url: doubanBookApi,
 			type: "get",
+			client_id= "018f55f54b5eb02904ae01dfe21c107b",
 			dataType: 'jsonp',
 			success: function(data){
 				var image = data.images.small;
