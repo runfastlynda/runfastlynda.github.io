@@ -70,9 +70,10 @@ Gradient分为linear-gradient(线性渐变)和radial-gradient(径向渐变)。
 ##### linear-gradient(线性渐变)
 ###### 使用语法：
 
+```
 linear-gradient(angle,color-stop)
 color-stop = color[ length | percentage]
-
+```
 详细介绍
 
 + angle：用角度值指定渐变的方向（或角度）。
@@ -116,8 +117,10 @@ radial-gradient径向渐变由它的中心定义。
 为了创建一个径向渐变，你也必须至少定义两种颜色结点。颜色结点即你想要呈现平稳过渡的颜色。同时，你也可以指定渐变的中心、形状（原型或椭圆形）、大小。默认情况下，渐变的中心是 center（表示在中心点），渐变的形状是 ellipse（表示椭圆形），渐变的大小是 farthest-corner（表示到最远的角落）。
 
 ###### 语法
-background: radial-gradient(center, shape size, start-color, ..., last-color);
 
+```
+background: radial-gradient(center, shape size, start-color, ..., last-color);
+```
 径向渐变 - 颜色结点均匀分布（默认情况下）：
 
 ```css
