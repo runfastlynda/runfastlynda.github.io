@@ -48,7 +48,7 @@ EventUtil.addHandler(form, "submit", function(event){
 
 也可以使用编程的方式调用submit()方法来提交表单。而且，这种方式无需表单包含提交按钮，任何时候都可以正常提交表单：
 
-```
+```javascript
 var form = document.getElementById("myForm");
 //提交表单
 form.submit();
