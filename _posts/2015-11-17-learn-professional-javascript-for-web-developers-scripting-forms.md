@@ -10,10 +10,12 @@ categories:
 取得form元素引用的方式主要有以下两种。
 
 第一种通过getElementById：
+
 ```javascript
 var form = document.getElementById("form");
 ```
 第二种通过document.forms提取所有页面的表单，再通过数值索引或name值来取得特定的表单。
+
 ```javascript
 var firstForm = document.forms[0];//取得页面中的第一个表单
 var form = document.forms["form"];//取得页面中名称为"form2"的表单，如有同名的，则得到一组元素（例如radio button）
@@ -87,10 +89,12 @@ EventUtil.addHandler(form, "submit",function(event){
 而所有的表单字段都有两个方法：focus()和blur()，一个是聚焦，一个是移除焦点。其中，focus()方法用于将浏览器的焦点设置到表单字段，即激活表单字段，使其可以响应键盘事件。我们可以侦听load事件，在该事件发生时在表单的第一个字段上调用focus()方法，要注意的是，如果第一个表单字段是一个input元素，且其type特性的值为hidden，那么上述代码会导致错误。
 
 HTML5为表单字段新增了一个autofocus属性。在支持这个属性的浏览器中，只要设置这个属性，不用JavaScript就能自动把焦点移动到相应字段：
+
 ```HTML
 <input type="text" autofocus>
 ```
 为了autofocus能够正常的运行，我们需要使用上面的方法，进行判断：
+
 ```JavaScript
 EventUtil.addHandler(window, "load", function(event){
 	var element = document.forms[0].elements[0];
@@ -128,6 +132,7 @@ EventUtil.addHandler(textbox, "focus", function(event){
 ##### 选择部分文本
 
 主流浏览器的方式：
+
 ```javascript
 var text = document.forms[0].elements['userName'];
 text.select();//全选
@@ -135,6 +140,7 @@ text.setSelectionRange(0， 3);//选择前3个字符
 ```
 
 IE浏览器设置/获取选中文本的方式与主流方式不同，设置选中的方式如下：
+
 ```javascript
 var range = text.createTextRange();
 range.collapse();//把范围折叠到开始位置
@@ -200,18 +206,21 @@ if (!/\d/.test(String.fromCharCode(charCode)) && charCode > 9 && !event.ctrlKey)
 * value：选项的值。
 
 所以，我们不推荐使用DOM方法来访问这些信息：
+
 ```javascript
 var selectbox = document.forms[0].elements["location"];
 var text = selectbox.options[0].firstChild.nodeValue;
 var value = selectbox.options[0].getAttribute("value");
 ```
 而推荐使用以下方法：
+
 ```javascript
 var selectbox = document.forms[0].elements["location"];
 var text = selectbox.options[0].text;
 var value = selectbox.options[0].value;
 ```
 ##### 添加选项
+
 ```javascript
 //传统的DOM方法
 var newOption = document.createElement("option");
@@ -229,6 +238,7 @@ selectbox.add(newOption, undefined);
 ```
 
 ##### 移除选项
+
 ```javascript
 //DOM方法
 selectbox.removeChild(selectbox.options[0]);	//移除第一个选项
