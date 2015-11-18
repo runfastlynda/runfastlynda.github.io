@@ -26,7 +26,8 @@ if(canvas.getContext){
   var context = canvas.getContext('2d');  
 }
 ```
-绘画完以后，可以使用toDataURL()方法，导出在<canvas>上绘制的图像，这个方法接受一个参数，即图像的MIME类型格式，这个方法默认返回的是PNG格式，通过对这个编码进行处理，不仅可以将图片显示在页面中，还可以将图片保存到本地。
+
+绘画完以后，可以使用toDataURL()方法，导出在canvas上绘制的图像，这个方法接受一个参数，即图像的MIME类型格式，这个方法默认返回的是PNG格式，通过对这个编码进行处理，不仅可以将图片显示在页面中，还可以将图片保存到本地。
 
 
 ### 2D上下文
@@ -101,20 +102,15 @@ if (drawing.getContext){
 
 2D上下文支持很多在画布上绘制路径的方法。通过路径可以创造出复杂的形状和线条。要绘制路径，必须先调用beginPath()方法，表示要开始绘制新的路径。然后，再通过下列方法来实际地绘制路径。
 
-arc(x, y, radius, startAngle, endAngle, counterclockwise)： 
+* arc(x, y, radius, startAngle, endAngle, counterclockwise)： 
 以(x,y)为圆心绘制一条弧线，弧线半径为radius，起始和结束角度（用弧度表示）分别为startAngle和endAngle。最后一个参数表示startAngle和endAngle是否按逆时针方向计算，值为false表示按顺时针方向计算。
-
-arcTo(x1, y1, x2, y2, radius)： 
+* arcTo(x1, y1, x2, y2, radius)： 
 从上一点开始绘制一条曲线，到(x2,y2)为止，并且以给定的半径radius穿过(x1,y1)。
-
-bezierCurveTo(c1x, c1y, c2x, c2y, x, y)： 
+* bezierCurveTo(c1x, c1y, c2x, c2y, x, y)： 
 从上一点开始绘制一条曲线，到(x,y)为止，并且以(c1x,c1y)和(c2x,c2y)为控制点。 
-
-lineTo(x, y)：从上一点开始绘制一条直线，到(x,y)为止。 
-
-moveTo(x, y)：将绘图游标移动到(x,y)，不画线。 quadraticCurveTo(cx, cy, x, y)：从上一点开始绘制一条二次曲线，到(x,y)为止，并且以(cx,cy)作为控制点。
-
-rect(x, y, width, height)：从点(x,y)开始绘制一个矩形，宽度和高度分别由width和height指定。这个方法绘制的是矩形路径，而不是strokeRect()和fillRect()所绘制的独立的形状。
+* lineTo(x, y)：从上一点开始绘制一条直线，到(x,y)为止。 
+* moveTo(x, y)：将绘图游标移动到(x,y)，不画线。 quadraticCurveTo(cx, cy, x, y)：从上一点开始绘制一条二次曲线，到(x,y)为止，并且以(cx,cy)作为控制点。
+* rect(x, y, width, height)：从点(x,y)开始绘制一个矩形，宽度和高度分别由width和height指定。这个方法绘制的是矩形路径，而不是strokeRect()和fillRect()所绘制的独立的形状。
 
 创建了路径以后，接下来有几种选择：
 
@@ -148,6 +144,7 @@ if (drawing.getContext){
 ```
 
 ![](http://7xjufd.dl1.z0.glb.clouddn.com/1.png)
+
 
 ##### 绘制文本
 
@@ -216,9 +213,9 @@ if (drawing.getContext) {
 
 2D绘图上下文内置了对图像的支持。采用drawImage()可以方法可以把图像绘制到画布上。调用这个方法时，可以采用三种不同的参数组合。
 
-1、传入一个HTML的img元素，以及绘制该图像的起点的x和y坐标，还有可选的两个参数，为目标宽度和高度。 
-2、通过给drawImage()传入9个参数，来实现把图像中的某个区域绘制到上下文中。9个参数分别为：要绘制的图像，源图像的x坐标、源图像的y坐标、源图像的宽度、源图像的高度、目标图像的x坐标、目标图像的y坐标、目标图像的宽度、目标图像的高度。 
-3、传入一个canvas元素作为其第一个参数，把另一个画布内容绘制到当前画布。
+* 传入一个HTML的img元素，以及绘制该图像的起点的x和y坐标，还有可选的两个参数，为目标宽度和高度。 
+* 通过给drawImage()传入9个参数，来实现把图像中的某个区域绘制到上下文中。9个参数分别为：要绘制的图像，源图像的x坐标、源图像的y坐标、源图像的宽度、源图像的高度、目标图像的x坐标、目标图像的y坐标、目标图像的宽度、目标图像的高度。 
+* 传入一个canvas元素作为其第一个参数，把另一个画布内容绘制到当前画布。
 
 ##### 阴影
 
