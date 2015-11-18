@@ -102,15 +102,20 @@ if (drawing.getContext){
 
 2D上下文支持很多在画布上绘制路径的方法。通过路径可以创造出复杂的形状和线条。要绘制路径，必须先调用beginPath()方法，表示要开始绘制新的路径。然后，再通过下列方法来实际地绘制路径。
 
-* arc(x, y, radius, startAngle, endAngle, counterclockwise)： 
+arc(x, y, radius, startAngle, endAngle, counterclockwise)： 
 以(x,y)为圆心绘制一条弧线，弧线半径为radius，起始和结束角度（用弧度表示）分别为startAngle和endAngle。最后一个参数表示startAngle和endAngle是否按逆时针方向计算，值为false表示按顺时针方向计算。
-* arcTo(x1, y1, x2, y2, radius)： 
+
+arcTo(x1, y1, x2, y2, radius)： 
 从上一点开始绘制一条曲线，到(x2,y2)为止，并且以给定的半径radius穿过(x1,y1)。
-* bezierCurveTo(c1x, c1y, c2x, c2y, x, y)： 
-从上一点开始绘制一条曲线，到(x,y)为止，并且以(c1x,c1y)和(c2x,c2y)为控制点。 
-* lineTo(x, y)：从上一点开始绘制一条直线，到(x,y)为止。 
-* moveTo(x, y)：将绘图游标移动到(x,y)，不画线。 quadraticCurveTo(cx, cy, x, y)：从上一点开始绘制一条二次曲线，到(x,y)为止，并且以(cx,cy)作为控制点。
-* rect(x, y, width, height)：从点(x,y)开始绘制一个矩形，宽度和高度分别由width和height指定。这个方法绘制的是矩形路径，而不是strokeRect()和fillRect()所绘制的独立的形状。
+
+bezierCurveTo(c1x, c1y, c2x, c2y, x, y)： 
+从上一点开始绘制一条曲线，到(x,y)为止，并且以(c1x,c1y)和(c2x,c2y)为控制点。
+
+lineTo(x, y)：从上一点开始绘制一条直线，到(x,y)为止。 
+
+moveTo(x, y)：将绘图游标移动到(x,y)，不画线。 quadraticCurveTo(cx, cy, x, y)：从上一点开始绘制一条二次曲线，到(x,y)为止，并且以(cx,cy)作为控制点。
+
+rect(x, y, width, height)：从点(x,y)开始绘制一个矩形，宽度和高度分别由width和height指定。这个方法绘制的是矩形路径，而不是strokeRect()和fillRect()所绘制的独立的形状。
 
 创建了路径以后，接下来有几种选择：
 
@@ -156,8 +161,10 @@ if (drawing.getContext){
 
 这几个属性都有默认值，没有必要每次使用都对它们进行赋值。
 
-fillText()：使用fillStyle属性绘制文本。 
-strokeText()：使用strokeStyle属性为文本描边。 另外，2D上下文提供了一个辅助确定文本大小的方法measureText()，这个方法接收一个参数，即要绘制的文本，返回一个TextMetrics对象，这个对象有一个width属性。
+* fillText()：使用fillStyle属性绘制文本。 
+* strokeText()：使用strokeStyle属性为文本描边。 
+
+另外，2D上下文提供了一个辅助确定文本大小的方法measureText()，这个方法接收一个参数，即要绘制的文本，返回一个TextMetrics对象，这个对象有一个width属性。
 
 ##### 变换
 
@@ -206,8 +213,6 @@ if (drawing.getContext) {
 
 ![](http://7xjufd.dl1.z0.glb.clouddn.com/2.png)
 
-
-无论是变换还是fillStyle、strokeStyle等属性，都会在当前上下文中一直有效，除非再对上下文进行什么修改。虽然没有什么办法把上下文中的一切都重置回默认值，但有两个方法可以跟踪上下文的状态变化。如果你知道将来还要返回某组属性与变换的组合，可以调用save()方法。调用这个方法以后，当时的所有设置都会进入一个栈结构，得以妥善保管。然后可以对上下文进行其他修改。等想要回到之前保存的设置时，可以调用restore()方法，在保存设置的栈结构中向前返回一级，恢复之前的状态。连续调用save()可以把更多设置保存到栈结构中，之后再连续调用restore()则可以一级一级返回。 
 
 ##### 绘制图像
 
