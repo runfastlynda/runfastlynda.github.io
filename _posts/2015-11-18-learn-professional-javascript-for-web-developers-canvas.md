@@ -7,27 +7,27 @@ categories:
 
 ### Canvas是什么
 
-HTML5 新定义了一个标签，就叫做 canvas，这个元素在页面中生存一个区域，然后可以通过 JavaScript 动态地在这个区域中绘制图形，也就是说 canvas 元素只是一个容器，真正实现绘图的是 JavaScript 脚本。 
+HTML5 新定义了一个标签，就叫做 canvas，这个元素在页面中设定一个区域，然后可以通过 JavaScript 动态地在这个区域中绘制图形，也就是说 canvas 元素只是一个容器，真正实现绘图的是 JavaScript 脚本。 
 
 ### Canvas基本使用方法
 
-要使用 canvas 元素，必须先指定绘图区域的大小，即给其设置width和height属性。<canvas 的开始和结束标签之间可以写入一些信息，当浏览器不支持 canvas 标签的时候，就会显示这些信息。
+要使用 canvas 元素，必须先指定绘图区域的大小，即给其设置width和height属性。canvas 的开始和结束标签之间可以写入一些信息，当浏览器不支持 canvas 标签的时候，就会显示这些信息。
 
 ```HTML
-<canvas id="canvas" width="586" height="442">当前浏览器不支持 canvas 标签</canvas> 
+<canvas id="canvas" width="600" height="600">当前浏览器不支持 canvas 标签</canvas> 
 ```
 
 要在这块画布上绘图，需要取得绘图上下文，则需要调用getContext()方法并传入上下文的名字，例如传入“2d“，用来获取2D上下文对象，等以后浏览器支持WebGL的时候，就可以传入“3D”来获取3D上下文对象。
 
 ```javascript
 var canvas = document.getElementById('canvas');
-//确定浏览器是否支持<canvas>，非常重要
+//确定浏览器是否支持canvas
 if(canvas.getContext){
   var context = canvas.getContext('2d');  
 }
 ```
 
-绘画完以后，可以使用toDataURL()方法，导出在canvas上绘制的图像，这个方法接受一个参数，即图像的MIME类型格式，这个方法默认返回的是PNG格式，通过对这个编码进行处理，不仅可以将图片显示在页面中，还可以将图片保存到本地。
+当我们绘画完以后，可以使用toDataURL()方法，导出在canvas上绘制的图像，这个方法接受一个参数，即图像的MIME类型格式，这个方法默认返回的是PNG格式，通过对这个编码进行处理，不仅可以将图片显示在页面中，还可以将图片保存到本地。
 
 
 ### 2D上下文
@@ -37,8 +37,8 @@ if(canvas.getContext){
 填充，就是用指定的样式填充图形。描边，就是只在图形的边缘画线。分别涉及到两个属性：fillStyle 和 strokeStyle。这两个属性的值可以是字符串、渐变对象或者模式对象，决定了绘制2D图像的边框或者内容的颜色。
 
 ```javascript
-if (drawing.getContext){
-     var context = drawing.getContext("2d"); 
+if (draw.getContext){
+     var context = draw.getContext("2d"); 
      context.strokeStyle = "red";
      context.fillStyle = "#0000ff";
 }
@@ -51,9 +51,9 @@ if (drawing.getContext){
 fillRect()：在画布上绘制的矩形会填充指定的颜色，填充的颜色通过fillStyle属性指定。
 
 ```javascript
-var drawing = document.getElementById("drawing");
-if (drawing.getContext){
-    var context = drawing.getContext("2d");
+var draw = document.getElementById("draw");
+if (draw.getContext){
+    var context = draw.getContext("2d");
     //绘制红色矩形，从（10，10）坐标开始绘制矩形，宽高都为50px。
     context.fillStyle = "#ff0000";
     context.fillRect(10, 10, 50, 50);
@@ -67,9 +67,9 @@ strokeRect()：在画布上绘制的矩形会使用指定的颜色边框，边�
 
 
 ```javascript
-var drawing = document.getElementById("drawing");
-if (drawing.getContext){
-    var context = drawing.getContext("2d");
+var draw = document.getElementById("draw");
+if (draw.getContext){
+    var context = draw.getContext("2d");
     //绘制红色描边矩形，从（10，10）坐标开始绘制矩形，宽高都为50px。
     context.strokeStyle = "#ff0000";
     context.strokeRect(10, 10, 50, 50);
@@ -83,9 +83,9 @@ clearRect()：用于清除画布上的矩形区域。
 
 
 ```javascript
-var drawing = document.getElementById("drawing");
-if (drawing.getContext){
-    var context = drawing.getContext("2d");
+var draw = document.getElementById("draw");
+if (draw.getContext){
+    var context = draw.getContext("2d");
     //绘制红色矩形，从（10，10）坐标开始绘制矩形，宽高都为50px。
     context.fillStyle = "#ff0000";
     context.fillRect(10, 10, 50, 50);
@@ -127,9 +127,9 @@ rect(x, y, width, height)：从点(x,y)开始绘制一个矩形，宽度和高�
 例如：绘制一个时钟
 
 ```javascript
-var drawing = document.getElementById("drawing");
-if (drawing.getContext){
-  var context = drawing.getContext("2d");
+var draw = document.getElementById("draw");
+if (draw.getContext){
+  var context = draw.getContext("2d");
   //开始路径  
   context.beginPath();
   //绘制外圆
@@ -187,9 +187,9 @@ setTransform(m1_1, m1_2, m2_1, m2_2, dx, dy):将变换矩阵重置为默认状�
 
 
 ```javascript
-var drawing = document.getElementById("drawing");
-if (drawing.getContext) {
-  var context = drawing.getContext("2d");
+var draw = document.getElementById("draw");
+if (draw.getContext) {
+  var context = draw.getContext("2d");
   //开始路径  
   context.beginPath();
   //绘制外圆
@@ -234,7 +234,7 @@ if (drawing.getContext) {
 这些属性都可以通过context对象来修改。在绘制前为它们设置适当的值，就能自动产生阴影。
 
 ```javascript
-var context = drawing.getContext("2d");
+var context = draw.getContext("2d");
 //设置阴影
 context.shadowOffsetX = 5;
 context.shadowOffsetY = 5;
