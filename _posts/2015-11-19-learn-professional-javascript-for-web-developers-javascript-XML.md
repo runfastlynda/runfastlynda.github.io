@@ -121,7 +121,7 @@ alert（xmldom.xml）
 
 ##### 跨浏览器处理XML
 
-```javasript
+```javascript
 function parseXML(xml){
   var xmldom = null;
   if(typeof DOMParser != "undefined"){
@@ -151,7 +151,7 @@ function parseXML(xml){
 
 用此函数解析XML字符串时，应该放在try-catch语句中
 
-```javasript
+```javascript
 var xmldom = null;
 try{
   xmldom = parseXml("<root><child/><root>");
@@ -163,7 +163,7 @@ catch(ex){
 
 序列化XML兼容代码
 
-```javasript
+```javascript
 function serializeXml(xmldom){
   if(typeof XMLSerializer != "undefined"){
     return(new XMLSerializer()).serializeToString(xmldom);
