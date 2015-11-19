@@ -18,7 +18,7 @@ var xmldom = document.implemention.createDocument(namespaceUri,root,docype);
 
 ```javascript
 var xmldom = document.implementation.createDocument("","root",null);
-aert(xmldom.documentElement.tagName);  //"root"
+alert(xmldom.documentElement.tagName);  //"root"
 var child = xmldom.createElement("child");
 xmldom.documentElement.appendChild(child);
 ```
@@ -188,7 +188,7 @@ XPath是设计用来在DOM文档中查找节点的一种手段，因而对XML处
 DOM3级支持XPath，用下面的代码检测浏览器是否支持：
 
 ```javascript
-Var supportsXPath = document.implementation.hasFeature("XPath","3.0");
+var supportsXPath = document.implementation.hasFeature("XPath","3.0");
 ```
 
 DOM3级XPath中最重要的两个类型：XPathEvaluator和XPathResult。XPathEvalutor用于特定的上下文中队XPath表达式求值。这个类型有3个方法：
@@ -216,7 +216,7 @@ var element = xmldom.documentElement.selectSingleNode("employee/name");
 * selectNodes()，接受一个XPath模式作参数，返回与模式匹配的所有节点的NodeList（如果没有匹配的节点，则返回一个包含零项的NoedList）。
 
 ```javascript
-Var elements = xmldom.documentElement.selectNodes("employee/name");
+var elements = xmldom.documentElement.selectNodes("employee/name");
 Alert(elements.length);
 ```
 
@@ -346,7 +346,7 @@ var result = processor.output;
 
 使用XSL处理器可以对转换进行更多的控制，同时也支持更高级的XSLT特性。
 
-* addParameter()：两个参数：要设置的参数名称（与在<xsl:param>的name特性中给指定的一样）和要指定的值（多数是字符串，也可以是数值或布尔值）。
+* addParameter()：两个参数：要设置的参数名称（与在xsl:param的name特性中给指定的一样）和要指定的值（多数是字符串，也可以是数值或布尔值）。
 * setStartMode()：接受一个参数，即要为处理器设置的模式。
 * reset()：重置处理器，清除原先的输入和输出属性、启动模式及其它指定的参数。processor.reset();
 
