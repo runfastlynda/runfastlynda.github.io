@@ -46,7 +46,7 @@ JSX 就是为了把 HTML 模板直接嵌入到 JS 代码里面，这样就做到
 
 将这个HTML片段表示为React Component，先包装，再使用 render 方法中返回这些标签。
 
-```
+```javascript
 var Divider = React.createClass({
 	render: function(){
 		renturn (
@@ -64,7 +64,7 @@ var Divider = React.createClass({
 
 JSX将两个花括号之间的内容{…}渲染为动态值。花括号指明了一个JavaScript 上下文环境，花括号之中放的任何东西会被进行求值，得到的结果被渲染为标签中的若干节点。
 
-```
+```javascript
 var text = ‘question’;
 <h2>{text}</h2>
 ```
@@ -75,7 +75,7 @@ React将开始标签与结束标签之间的所有子节点保存在一个名为
 
 因此，我们使用下面的代码可以渲染出相同的结果。
 
-```
+```javascript
 var Divider = React.createClass({
 	render: function(){
 		renturn (
@@ -94,7 +94,7 @@ var Divider = React.createClass({
 
 * 使用三目运算符
 
-```
+```javascript
 render: function(){
 	renturn (<div className={
 		this.status.isComplete ? ‘is-complete’ : ‘ ’
@@ -106,7 +106,7 @@ render: function(){
 
 * 使用变量
 
-```
+```javascript
 getComplete: function( ){
 	return this.status.isComplete ? ‘is-complete’ : ‘ ’;
 },
@@ -118,7 +118,7 @@ render: function( ){
 
 * 使用函数
 
-```
+```javascript
 getComplete: function( ){
 	return this.status.isComplete ? ‘is-complete’ : ‘ ’;
 },
@@ -129,7 +129,7 @@ render: function( ){
 
 * 使用&&运算符
 
-```
+```javascript
 render: function( ){
 	return <div className={his.status.isComplete ? ‘is-complete’ : ‘ ’}>…</div>
 }
@@ -147,7 +147,7 @@ render: function( ){
 
 ref 允许父组件在render方法之外保持对子组件的一个引用。
 
-```
+```javascript
 render: function( ){
 	return <div>
 		<input ref=“myInput” …/>
