@@ -101,8 +101,8 @@ var allChildren = employees.children();
 还有一个elements()的行为与child()类似，只是它返回表示元素的XML对象。
 
 ```javascript
-var employeeList = employees.elements("employee"); //􏷭 employees.employee 􏷮􏷯
-var allChildren = employees.elements("*"); //􏷭employees.*相同
+var employeeList = employees.elements("employee"); //employees.employee 
+var allChildren = employees.elements("*"); //employees.*相同
 ```
 删除子元素
 
@@ -153,7 +153,7 @@ XML.ignoreProcessingInstructions = false;
 使用下面的代码可以访问所有的后代节点
 
 ```javascript
-var allDescendants = employees..*; //􏹖􏹗<employees/>的所有后代节点􏲗􏹢
+var allDescendants = employees..*; //<employees/>的所有后代节点
 ```
 ##### 构建和操作XML
 
@@ -205,7 +205,7 @@ for each (var child in employees){
 在这个例子中for-each-in循环，employee的每个子节点会依次被赋值child变量，其中包括注释、处理指令和/或文本节点。要想要返回特性节点，则需要对一个由特性节点组成的XMLList对象进行操作。
 
 ```javascript
-or each (var attribute in employees.@*){ //􏲈􏸯特􏸰 alert(attribute);
+or each (var attribute in employees.@*){ //alert(attribute);
 }
 ```
 对应数组，for-each-in循环会返回每一项。
