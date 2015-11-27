@@ -55,16 +55,11 @@ DOM2级事件规定的事件流包括三个阶段：事件捕获阶段，处于�
 但是在HTML中定义的事件处理程序可以包含要执行的具体动作(有权访问全局作用域中的任何代码)：
 
 ```javascript
-html>
 <script type="text/javascript">
     function showMessage() {
         document.write("Hello world!"); 
     }
 </script>
-<body>
-    <input type="button" value="Click Me" onClick="showMessage()"/>
-</body>
-</html>
 ```
 这样指定事件处理程序具有一些独到之处。因为这样会创建一个封装着元素属性值的函数，而这个函数有一个局部变量event，也就是事件对象：
 
@@ -84,12 +79,13 @@ HTML事件处理程序的缺点：
 
 ```javascript
 <input id="myBtn" type="button" value="Click Me" />
-<script type="text/javascript">
+<script>
 var btn = document.getElementById("myBtn");
 btn.onclick = function() {
     alert("Clicked");   
     alert(this.id);
 };
+<script>
 ```
 使用DOM0级方法指定的事件处理程序被认为是元素的方法。因此，这时候的事件处理程序是在元素的作用域中运行；则程序中的this引用当前的元素，甚至可以通过this访问元素的任何属性和方法。
 
@@ -114,41 +110,33 @@ DOM2级事件定义了两个方法，用于处理指定和删除事件处理程�
 而DOM2级事件的好处是可以添加多个事件处理程序（DOM0级事件处理程序无法办到）：
 
 ```javascript
-<script>
-    var btn = document.getElementById("myBtn");
-    btn.addEventListener("click", function(){
-        alert(this.id);
-    }, false);
-    btn.addEventListener("click", function(){
-        alert("Hello world!");  
-    }, false);
-</script>
+var btn = document.getElementById("myBtn");
+btn.addEventListener("click", function(){
+    alert(this.id);
+}, false);
+btn.addEventListener("click", function(){
+    alert("Hello world!");  
+}, false);
 ```
 事件处理会按照它们添加的顺序触发。通过addEventListener()添加的事件处理程序只能使用removeEventListener()来移除；移除时候传入的参数与添加处理程序时使用的参数相同。这就意味着通过addEventListener()添加的匿名函数将无法移除：
 
 ```javascript
-<script type="text/javascript">
-    var btn = document.getElementById("myBtn");
-    btn.addEventListener("click", function(){
-        alert(this.id);
-    }, false);
-    //移除失败!因为匿名函数不相等
-    btn.removeEventListener("click", function(){
-        alert(this.id); 
-    }, false)
-</script>
-
+var btn = document.getElementById("myBtn");
+btn.addEventListener("click", function(){
+    alert(this.id);
+}, false);
+//移除失败!因为匿名函数不相等
+btn.removeEventListener("click", function(){
+    alert(this.id); 
+}, false)
 //修改如下
-
-<script type="text/javascript">
-    var handler = function() {
-        alert(this.id); 
-    };
-    var btn = document.getElementById("myBtn");
-    btn.addEventListener("click", handler, false);
-    //移除失败!因为匿名函数不相等
-    btn.removeEventListener("click", handler, false)
-</script>
+var handler = function() {
+    alert(this.id); 
+};
+var btn = document.getElementById("myBtn");
+btn.addEventListener("click", handler, false);
+//移除失败!因为匿名函数不相等
+btn.removeEventListener("click", handler, false)
 ```
 
 ##### IE级事件处理程序
@@ -160,13 +148,11 @@ IE提供与DOM类似的两个方法：attachEvent()和detachEvent()。它们接�
 * 事件处理程序以on开头
 
 ```javascript
-<script>
-    var handler = function() {
-        alert(this.id); 
-    };
-    var btn = document.getElementById("myBtn");
-    btn.attachEvent("onclick", handler);
-</script>
+var handler = function() {
+    alert(this.id); 
+};
+var btn = document.getElementById("myBtn");
+btn.attachEvent("onclick", handler);
 ```
 
 ##### 跨浏览器的事件处理程序
