@@ -1,7 +1,7 @@
 ---
-layout： post
-title： "JavaScript高级程序设计学习笔记：DOM"
-categories：
+layout: post
+title: "JavaScript高级程序设计学习笔记：DOM"
+categories: 
 - 博客
 ---
 
@@ -9,7 +9,7 @@ categories：
 
 DOM1级定义了一个Node接口，该接口将由DOM中的所有节点类型实现。javascript中的所有节点类型都继承自Node类型，因此所有节点类型都共享着相同的基本属性和方法。
 
-每个节点都有一个nodeType属性,用于表明节点的类型:
+每个节点都有一个nodeType属性，用于表明节点的类型：
 
 * Node.ELEMENT_NODE(1);
 * Node.ATTRIBUTE_NODE(2);
@@ -99,7 +99,6 @@ ul.insertBefore(firstnode,ul.childNodes[2]);
 ```
 
 * replaceChild(newnode,oldnode)：替换节点。第一个参数是要插入的新节点，第二个参数是要被替换掉的节点。
-
 * removeChild(somenode)：移除节点指定节点。
 
 ```javascript
@@ -107,9 +106,10 @@ var headlines=document.getElementById("headline_block");
 var ul=headlines.childNodes[0];
 ul.removeChild(ul.childNodes[0]);
 ```
+
 ### Document类型
 
-javascript通过Document类型表示文档。在浏览器中，document对象是HTMLDocument(继承自Document类型)的一个实例，表示整个HTML页面。而且，document对象是window对象的一个属性，因此可以将其作为全局对象来访问(Document并不表示具体的节点，而是表示整个HTML页面)。Document节点具有下列特征:
+javascript通过Document类型表示文档。在浏览器中，document对象是HTMLDocument(继承自Document类型)的一个实例，表示整个HTML页面。而且，document对象是window对象的一个属性，因此可以将其作为全局对象来访问(Document并不表示具体的节点，而是表示整个HTML页面)。Document节点具有下列特征：
 
 * nodeType的值为9
 * nodeName的值为#document
@@ -140,7 +140,7 @@ document.title：获取或修改页面title，修改后会反映在浏览器标�
 ```javascript
 document.title;
 document.title="xxx";
-document.URL:显示页面完整的URL。
+document.URL：显示页面完整的URL。
 document.referrer：来源页面的完整地址。
 document.domain：页面的域名，该属性是可以设置的。
 ```
@@ -211,13 +211,13 @@ myDiv2.appendChild(textNode);
 * 不支持(没有)子节点。
 
 可以通过nodeValue属性或data属性访问Text节点中包含的文本，这两个属性中包含的值相同。以下方法可操作节点中的文本：
-* appendData(text):将text添加到节点的末尾。
 
-* deleteData(offset,count):从offset指定的位置开始删除count个字符。
-* insertData(offset,text):在offset指定的位置插入text。
-* replaceData(offse, count,text):用text替换从offset指定的位置开始到offset+count为止的文本。
-* splitText(offset):从offset指定的位置将当前文本节点分成两个文本节点。
-* substringData(offset,count):提取从offset指定的位置开始到offset+count为止处的字符串。
+* appendData(text)：将text添加到节点的末尾。
+* deleteData(offset,count)：从offset指定的位置开始删除count个字符。
+* insertData(offset,text)：在offset指定的位置插入text。
+* replaceData(offse, count,text)：用text替换从offset指定的位置开始到offset+count为止的文本。
+* splitText(offset)：从offset指定的位置将当前文本节点分成两个文本节点。
+* substringData(offset,count)：提取从offset指定的位置开始到offset+count为止处的字符串。
 
 文本节点由Text类型表示，包含的是可以按字面解释的纯文本内容，可以包含转义后的HTML字符，但不能包含HTML代码，例如：获取节点文本内容：nodeValue或者data属性均可。
 
@@ -254,7 +254,8 @@ var textNode = document.createTextNode("Hello world!");
 div.appendChild(textNode);    
 //hello world1 Hello world!
 ```
-#####  Comment类型
+
+##### Comment类型
 
 注释在DOM中是通过Comment类型来表示的。Comment节点具有下列特征：
 
@@ -313,6 +314,7 @@ try{
 document.body.appendChild(script);
 }
 ```
+
 ##### 动态样式
 
 注意样式要添加到head中。使用Link动态添加来自外部的样式文件，执行是异步的。
@@ -342,4 +344,3 @@ head.appendChild(style);
 }
 loadCss("body{background-color:red}");
 ```
-
