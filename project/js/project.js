@@ -19,8 +19,8 @@ $(document).ready(function(){
   }
 
   function render(item){
-    var pHtml = '<p class="la-title">' + item.title + '</p>';
-    var spanHtml = '<span class="la-visit">Visit Project --> </span>';
+    var pHtml = '<p class="la-title">#' + item.id + ' ' + item.title + '</p>';
+    var spanHtml = '<span class="la-visit">Visit Project</span>';
     var imgHtml = '<img class="la-screenshot" src="' + item.image + '" alt=""/>';
     var imgAHtml = '<a class="la-preview" href="' + item.url + '" target="_blank">' + imgHtml + spanHtml + pHtml + '</a>';
 
@@ -29,7 +29,8 @@ $(document).ready(function(){
     var linkIHtml = '<i class="la-icon iconfont">&#xe604;</i>';
     var githubAHtml = '<a class="la-stat la-github" href="' + item.github + '" target="_blank">GitHub</a>';
     var demoAHtml = '<a class="la-stat la-demo" href="' + item.demo + '" target="_blank">Demo</a>';
-    var linkDivHtml = '<div class="la-stats">' + linkIHtml + githubAHtml + demoAHtml +'</div>';
+    var blogAHtml = item.blog ? '<a class="la-stat la-blog" href="' + item.blog + '" target="_blank">Blog</a>' : '';
+    var linkDivHtml = '<div class="la-stats">' + linkIHtml + githubAHtml + demoAHtml + blogAHtml +'</div>';
 
     var tagsIHtml = '<i class="la-icon iconfont">&#xe606;</i>';
     var strongHtml = '<strong>Tags:</strong>&nbsp;';

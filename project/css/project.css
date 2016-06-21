@@ -31,7 +31,7 @@ a:hover, a:active, a:focus {
   text-decoration: underline; }
 
 .la-maozi {
-  color: #DD412B; }
+  color: #E36655; }
 
 .la-header {
   width: 100%;
@@ -547,6 +547,8 @@ a:hover, a:active, a:focus {
     background-color: #3499e0; }
   .la-project .la-demo {
     background-color: #f9b644; }
+  .la-project .la-blog {
+    background-color: #F95C44; }
   .la-project .la-tags {
     font-size: 12px;
     line-height: 20px;
