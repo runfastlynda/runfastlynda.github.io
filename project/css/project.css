@@ -447,6 +447,39 @@ a:hover, a:active, a:focus {
   color: #fff;
   text-shadow: 0 3px 1px rgba(0, 0, 0, 0.1); }
 
+.la-load {
+  width: 100px;
+  margin: 30px auto -30px;
+  text-align: center; }
+  .la-load .la-round {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    border-radius: 15px;
+    background: #B498E6; }
+  .la-load .la-round:nth-last-child(1) {
+    animation: loading .6s .1s linear infinite; }
+  .la-load .la-round:nth-last-child(2) {
+    animation: loading .6s .2s linear infinite; }
+  .la-load .la-round:nth-last-child(3) {
+    animation: loading .6s .3s linear infinite; }
+
+@-webkit-keyframes loading {
+  0 {
+    transform: translate(0, 0); }
+  50% {
+    transform: translate(0, 15px); }
+  100% {
+    transform: translate(0, 0); } }
+
+@keyframes loading {
+  0 {
+    transform: translate(0, 0); }
+  50% {
+    transform: translate(0, 15px); }
+  100% {
+    transform: translate(0, 0); } }
+
 .la-projects {
   padding: 50px 26px 26px; }
 
@@ -507,7 +540,7 @@ a:hover, a:active, a:focus {
     transform: translateY(100%);
     z-index: 75; }
   .la-project .la-title {
-    font-size: 21px !important;
+    font-size: 21px;
     letter-spacing: 0;
     line-height: 1.45;
     text-transform: none;
@@ -575,6 +608,7 @@ a:hover, a:active, a:focus {
 
 .la-load-more {
   padding: 30px;
+  margin: 30px auto;
   text-align: center; }
   .la-load-more .la-load-more-btn {
     padding-left: 0;
@@ -641,8 +675,10 @@ a:hover, a:active, a:focus {
       font-weight: 700; } }
 
 @media (min-width: 600px) and (max-width: 1025px) {
+  .la-load {
+    margin: 20px auto 6px; }
   .la-projects {
-    padding-top: 20px; }
+    padding-top: 30px; }
   .la-header-title h1 {
     font-size: 32px;
     margin: 100px 0 15px; }
@@ -662,27 +698,49 @@ a:hover, a:active, a:focus {
     margin-left: -160px; } }
 
 @media (max-width: 600px) {
+  .la-header {
+    height: 310px; }
   .la-header-title h1 {
     font-size: 26px;
-    margin: 100px 0 15px; }
+    margin: 80px 0 12px; }
   .la-header-title p {
     font-size: 14px; }
   .la-follow {
     position: absolute;
     top: 20px;
-    right: 20px;
+    bottom: 0;
+    left: 0;
+    right: 0;
     z-index: 100; }
     .la-follow i {
       font-size: 24px;
       margin-left: 8px;
       color: #fff; }
+  .la-load {
+    margin: 20px auto; }
   .la-projects {
     padding-top: 15px; }
   .la-animation {
+    top: 89px;
     left: 50%;
-    margin-left: -160px; }
+    margin-left: -160px;
+    transform: scale(0.8);
+    -webkit-transform: scale(0.8);
+    -ms-transform: scale(0.8); }
   .la-footer {
     font-size: 14px;
-    padding: 0 20px; }
+    padding: 0 20px;
+    text-align: center; }
     .la-footer i {
-      font-size: 16px; } }
+      font-size: 16px; }
+  .la-project .la-title {
+    font-size: 18px;
+    letter-spacing: 0;
+    margin: 0;
+    position: absolute;
+    bottom: -62px;
+    left: 16px; }
+  .la-project .la-visit {
+    display: none;
+    height: 40px;
+    line-height: 40px; } }

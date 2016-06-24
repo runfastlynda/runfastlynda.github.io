@@ -16,6 +16,7 @@ $(document).ready(function(){
     });
 
     $('.la-projects').append(projectsHtml);
+    $('.la-load').hide();
   }
 
   function render(item){
