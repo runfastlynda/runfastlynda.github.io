@@ -30,6 +30,12 @@ a {
 a:hover, a:active, a:focus {
   text-decoration: underline; }
 
+.la-logo {
+  margin: 0 auto;
+  width: 0px;
+  height: 0px;
+  overflow: hidden; }
+
 .la-maozi {
   color: #E36655; }
 
