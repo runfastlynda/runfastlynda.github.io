@@ -653,25 +653,25 @@ a:hover, a:active, a:focus {
 @media (max-width: 1025px) {
   .la-projects {
     padding: 30px 15px 0; }
-    .la-projects .la-project {
-      padding: 0;
-      width: 100%;
-      margin-bottom: 60px; }
-    .la-projects .la-title {
+  .la-project {
+    padding: 0;
+    width: 100%;
+    margin-bottom: 60px; }
+    .la-project .la-title {
       -webkit-transform: translateY(-75px);
       -ms-transform: translateY(-75px);
       transform: translateY(-75px); }
-    .la-projects .la-preview .la-screenshot {
+    .la-project .la-preview .la-screenshot {
       -webkit-transform: translateY(-20px);
       -ms-transform: translateY(-20px);
       transform: translateY(-20px); }
-    .la-projects .la-preview .la-visit {
+    .la-project .la-preview .la-visit {
       -webkit-transform: translateY(0);
       -ms-transform: translateY(0);
       transform: translateY(0); }
-    .la-projects .la-preview:hover .la-title {
+    .la-project .la-preview:hover .la-title {
       opacity: 1; }
-    .la-projects .la-stat {
+    .la-project .la-stat {
       font-weight: 700; } }
 
 @media (min-width: 600px) and (max-width: 1025px) {
@@ -679,6 +679,8 @@ a:hover, a:active, a:focus {
     margin: 20px auto 6px; }
   .la-projects {
     padding-top: 30px; }
+  .la-project {
+    margin-bottom: 40px; }
   .la-header-title h1 {
     font-size: 32px;
     margin: 100px 0 15px; }
@@ -717,9 +719,27 @@ a:hover, a:active, a:focus {
       margin-left: 8px;
       color: #fff; }
   .la-load {
-    margin: 20px auto; }
+    margin: 20px auto 15px; }
   .la-projects {
     padding-top: 15px; }
+  .la-project {
+    margin-bottom: 30px; }
+    .la-project .la-title {
+      font-size: 18px;
+      left: 16px;
+      -webkit-transform: translateY(6px);
+      -ms-transform: translateY(6px);
+      transform: translateY(6px); }
+    .la-project .la-visit {
+      display: none;
+      height: 40px;
+      line-height: 40px; }
+    .la-project .la-preview .la-screenshot {
+      -webkit-transform: translateY(0);
+      -ms-transform: translateY(0);
+      transform: translateY(0); }
+    .la-project .la-info {
+      margin-top: 16px; }
   .la-animation {
     top: 89px;
     left: 50%;
@@ -732,15 +752,4 @@ a:hover, a:active, a:focus {
     padding: 0 20px;
     text-align: center; }
     .la-footer i {
-      font-size: 16px; }
-  .la-project .la-title {
-    font-size: 18px;
-    letter-spacing: 0;
-    margin: 0;
-    position: absolute;
-    bottom: -62px;
-    left: 16px; }
-  .la-project .la-visit {
-    display: none;
-    height: 40px;
-    line-height: 40px; } }
+      font-size: 16px; } }
