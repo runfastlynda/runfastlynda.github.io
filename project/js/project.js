@@ -1,11 +1,11 @@
 $(document).ready(function(){
   var fb = new Firebase('https://100in100.firebaseio.com/');
 
-  fb.on("value", function(data){
+  fb.on('value', function(data){
     var projects = data.val();
     displayProject(projects);
   }, function(err){
-    console.log("The read failed: " + err.code);
+    console.log('The read failed: ' + err.code);
   });
 
   function displayProject(projects){
@@ -21,7 +21,7 @@ $(document).ready(function(){
 
   function render(item){
     var pHtml = '<p class="la-title">#' + item.id + ' ' + item.title + '</p>';
-    var spanHtml = '<span class="la-visit">Visit Project</span>';
+    var spanHtml = '<span class="la-link">Visit Project</span>';
     var imgHtml = '<img class="la-screenshot" src="' + item.image + '" alt=""/>';
     var imgAHtml = '<a class="la-preview" href="' + item.url + '" target="_blank">' + imgHtml + spanHtml + pHtml + '</a>';
 
