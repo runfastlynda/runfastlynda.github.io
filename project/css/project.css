@@ -92,6 +92,8 @@ a:hover, a:active, a:focus {
     height: 20px;
     border-bottom-right-radius: 30px;
     border-top-left-radius: 30px;
+    border-bottom-left-radius: 1px\9;
+    border-top-right-radius: 1px\9;
     background: #abd9b5;
     animation: fly 1s infinite alternate ease-in-out;
     transform-style: preserve-3d;
@@ -116,6 +118,8 @@ a:hover, a:active, a:focus {
     height: 20px;
     border-bottom-right-radius: 30px;
     border-top-left-radius: 30px;
+    border-bottom-left-radius: 1px\9;
+    border-top-right-radius: 1px\9;
     background: #abd9b5;
     animation: fly 1s infinite alternate ease-in-out;
     transform-style: preserve-3d;
@@ -511,7 +515,7 @@ a:hover, a:active, a:focus {
     left: 0;
     bottom: 0;
     z-index: 25;
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2) 0, #B996E5 100%); }
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0, #B996E5 100%); }
   .la-project .la-preview:hover .la-screenshot {
     -webkit-transform: translateY(-20px);
     -ms-transform: translateY(-20px);
@@ -528,7 +532,8 @@ a:hover, a:active, a:focus {
     transition: -webkit-transform 0.3s cubic-bezier(0.694, 0.0482, 0.335, 1);
     transition: transform 0.3s cubic-bezier(0.694, 0.0482, 0.335, 1);
     margin-top: -20px;
-    width: 100%; }
+    width: 100%;
+    border: 0px; }
   .la-project .la-link {
     transition: -webkit-transform 0.3s cubic-bezier(0.694, 0.0482, 0.335, 1);
     transition: transform 0.3s cubic-bezier(0.694, 0.0482, 0.335, 1);
