@@ -28,7 +28,7 @@ $(document).ready(function(){
     var desPHtml = '<p class="la-description">' + item.description + '</p>';
 
     var linkIHtml = '<i class="la-icon iconfont">&#xe604;</i>';
-    var githubAHtml = '<a class="la-stat la-github" href="' + item.github + '" target="_blank">GitHub</a>';
+    var githubAHtml = item.github ? '<a class="la-stat la-github" href="' + item.github + '" target="_blank">GitHub</a>' : '';
     var demoAHtml = '<a class="la-stat la-demo" href="' + item.demo + '" target="_blank">Demo</a>';
     var blogAHtml = item.blog ? '<a class="la-stat la-blog" href="' + item.blog + '" target="_blank">Blog</a>' : '';
     var linkDivHtml = '<div class="la-stats">' + linkIHtml + githubAHtml + demoAHtml + blogAHtml +'</div>';
