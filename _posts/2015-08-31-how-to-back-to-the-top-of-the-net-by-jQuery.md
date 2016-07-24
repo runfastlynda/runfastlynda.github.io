@@ -2,7 +2,10 @@
 layout: post
 title: "简单实现回到顶部的效果"
 categories:
-- 博客
+- html
+- css
+- javascript
+- frontend
 ---
 
 实现一个简单的回到顶部的效果实质是在一个图片（或文字）添加click事件，

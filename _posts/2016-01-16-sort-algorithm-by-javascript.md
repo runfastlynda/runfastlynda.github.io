@@ -2,7 +2,7 @@
 layout: post
 title: "常用排序算法之JavaScript实现"
 categories:
-- 博客
+- javascript
 ---
 
 ### 冒泡排序

@@ -2,7 +2,7 @@
 layout: post
 title: "用CSS设计响应式导航菜单"
 categories:
-- 博客
+- css
 ---
 
 我们这次的目标是做一个响应式导航菜单，不使用javascript，只使用CSS就可以做到。就像这样：

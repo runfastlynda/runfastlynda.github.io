@@ -2,6 +2,7 @@
 layout: post
 title:  "给 Jekyll 添加评论插件"
 categories:
+- jekyll
 ---
 
 

@@ -2,7 +2,7 @@
 layout: post
 title: "React 学习笔记(3)"
 categories:
-- 博客
+- react
 ---
 
 ### DOM操作

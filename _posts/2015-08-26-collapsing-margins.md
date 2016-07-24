@@ -2,7 +2,7 @@
 layout: post
 title: "说说Collapsing Margins"
 categories:
-- 博客
+- css
 ---
 
 经常遇到Collapsing Margins，也就是margin折叠的情况，可总是不知道哪里出现了问题。

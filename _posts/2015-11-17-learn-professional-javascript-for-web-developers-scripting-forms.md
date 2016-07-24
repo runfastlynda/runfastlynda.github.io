@@ -2,7 +2,7 @@
 layout: post
 title: "JavaScript高级程序设计学习笔记：表单脚本"
 categories:
-- 博客
+- javascript
 ---
 
 ### 获取表单及表单元素引用的方式

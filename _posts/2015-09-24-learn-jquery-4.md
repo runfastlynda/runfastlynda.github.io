@@ -3,6 +3,7 @@ layout: post
 title:  "jQuery基础教程-学习笔记（4）"
 date:   2015-09-24 18:28:16
 categories:
+- jquery
 ---
 
 ### DOM操作

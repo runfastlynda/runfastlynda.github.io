@@ -2,7 +2,7 @@
 layout: post
 title: "JavaScript setTimeout 为什么立即执行了"
 categories:
-- 博客
+- javascript
 ---
 
 我们都知道setTimeout是用来延时执行的，可有时确定了延迟时间，延迟执行的函数确立即执行了，这到底是为什么呢？下面分两种情况进行分析：

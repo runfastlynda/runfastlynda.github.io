@@ -3,6 +3,7 @@ layout: post
 title:  "jQuery基础教程-学习笔记（9）"
 date:   2015-10-04 18:28:16
 categories:
+- jquery
 ---
 ### 高级Ajax
 

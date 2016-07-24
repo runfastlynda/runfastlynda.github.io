@@ -2,8 +2,9 @@
 layout: post
 title: "2048源代码解读（2）"
 categories:
-- 博客
+- sourcecode
 ---
+
 上文介绍了2048源码的宏观情况，下面打算仔细的看看源代码，我自己很感兴趣于键盘控制这一部分，所以决定先阅读input_mannager.js这一部分。
 
 仔细查看了input_mannager.js的源代码发现好多的prototype。那先来看看prototype是什么？

@@ -2,8 +2,9 @@
 layout: post
 title: "2048源代码解读（4）"
 categories:
-- 博客
+- sourcecode
 ---
+
 已经阅读完[local_storage_manager.js](http://runfastlynda.com/2048-local-storage-manager/)和[keyboard_input_manager.js](http://runfastlynda.com/2048-input-mannager/)，这次阅读 html_actuator.js。
 
 HTMLActuator函数有如下结构：![](http://7xjufd.dl1.z0.glb.clouddn.com/blog4.1.png)

@@ -2,7 +2,7 @@
 layout: post
 title: "JavaScript高级程序设计学习笔记：最佳实践"
 categories:
-- 博客
+- javascript
 ---
 
 ### 可维护性

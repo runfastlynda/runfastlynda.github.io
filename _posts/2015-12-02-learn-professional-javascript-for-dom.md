@@ -2,7 +2,7 @@
 layout: post
 title: "JavaScript高级程序设计学习笔记：DOM"
 categories: 
-- 博客
+- javascript
 ---
 
 ### Node类型

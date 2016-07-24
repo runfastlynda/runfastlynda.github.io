@@ -2,7 +2,7 @@
 layout: post
 title: "JavaScript高级程序设计学习笔记：高级技巧"
 categories:
-- 博客
+- javascript
 ---
 
 ### 高级函数

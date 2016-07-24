@@ -3,6 +3,7 @@ layout: post
 title:  "jQuery基础教程-学习笔记（7）"
 date:   2015-09-28 18:28:16
 categories:
+- jquery
 ---
 ### 开发插件
 

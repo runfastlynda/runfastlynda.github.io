@@ -2,7 +2,7 @@
 layout: post
 title: "React 学习笔记(1)"
 categories:
-- 博客
+- react
 ---
 
 ### 使用JSX

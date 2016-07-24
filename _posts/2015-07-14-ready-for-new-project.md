@@ -2,7 +2,7 @@
 layout: post
 title: 开发一个前端项目的正确预备式
 categories:
-- 博客
+- frontend
 ---
 开发一个前端项目，我们需要做些准备，为了快速开始，我们一般会选择一个html标准模板。
 ### html5标准模板

@@ -2,7 +2,7 @@
 layout: post
 title: "JavaScript高级程序设计学习笔记：JavaScript 与 XML"
 categories:
-- 博客
+- javascript
 ---
 
 ### 浏览器对 XML DOM 的支持

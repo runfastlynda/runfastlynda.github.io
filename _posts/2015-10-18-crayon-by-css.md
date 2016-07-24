@@ -3,6 +3,7 @@ layout: post
 title:  "用CSS画支蜡笔"
 date:   2015-10-18 18:28:16
 categories:
+- css
 ---
 
 阅读了[single div-drawings with css](https://hacks.mozilla.org/2014/09/single-div-drawings-with-css/)这篇文章，不觉感叹CSS的强大，现把学习到新的技能，整理出来，在开始画纯CSS的蜡笔之前，先说说会涉及到的相关知识点。比如：我们会用到图形的组合，渲染颜色等等。

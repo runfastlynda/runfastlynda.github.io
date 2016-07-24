@@ -2,7 +2,7 @@
 layout: post
 title: "React 学习笔记(2)"
 categories:
-- 博客
+- react
 ---
 
 ### 组件的生命周期

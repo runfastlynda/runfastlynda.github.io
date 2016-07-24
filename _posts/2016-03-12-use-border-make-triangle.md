@@ -2,7 +2,7 @@
 layout: post
 title: "巧用border实现梯形和三角形"
 categories:
-- 博客
+- css
 ---
 
 

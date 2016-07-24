@@ -2,8 +2,9 @@
 layout: post
 title: jQuery基础教程-学习笔记（1）
 categories:
-- 博客
+- jquery
 ---
+
 ### jQuery的安装和使用
 
 jQuery不需要安装,要使用它只需该文件的一个副本,该副本可以放在外部站点上,也可以放在自己的服务器上。什么时候需要使用jQuery,只要在HTML文档中使用script元素把它导入进来即可。

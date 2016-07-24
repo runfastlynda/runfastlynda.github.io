@@ -2,8 +2,9 @@
 layout: post
 title: "2048源代码解读（3）"
 categories:
-- 博客
+- sourcecode
 ---
+
 [前面一篇](http://runfastlynda.com/2048-input-mannager/)已经介绍了input_mannager.js那一部分的代码，接着想了解游戏中的状态数据是怎么存储和调用的，所以来阅读local_storage_manager.js。
 
 local_storage_manager.js包括两个部分：window.fakeStorage和LocalStorageManager函数。查看到前者在LocalStorageManager函数中有调用，所以决定先阅读LocalStorageManager。

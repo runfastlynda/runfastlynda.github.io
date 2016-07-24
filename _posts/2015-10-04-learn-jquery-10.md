@@ -3,6 +3,7 @@ layout: post
 title:  "jQuery基础教程-学习笔记（10）"
 date:   2015-10-05 18:28:16
 categories:
+- jquery
 ---
 
 ### JavaScript闭包

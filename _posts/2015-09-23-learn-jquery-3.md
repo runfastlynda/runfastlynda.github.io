@@ -3,6 +3,7 @@ layout: post
 title:  "jQuery基础教程-学习笔记（3）"
 date:   2015-09-23 18:28:16
 categories:
+- jquery
 ---
 
 ### 样式和动画

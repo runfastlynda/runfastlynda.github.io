@@ -3,6 +3,7 @@ layout: post
 title:  "jQuery插件:jQuery Hotkeys"
 date:   2015-10-15 18:28:16
 categories:
+- jquery
 ---
 
 [jQuery Hotkeys](https://github.com/tzuryby/jquery.hotkeys)是一个jQuery插件，这个jQuery插件能够帮助你快速创建键盘触发事件。并且它支持任意组合键。

@@ -2,7 +2,7 @@
 layout: post
 title: "活学活用页面可见性"
 categories:
-- 博客
+- javascript
 ---
 
 Page Visibility API是HTML5中简单又实用的API之一。

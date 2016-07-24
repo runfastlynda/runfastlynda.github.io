@@ -2,7 +2,7 @@
 layout: post
 title: "如何写一个 Chrome 扩展应用"
 categories:
-- 博客
+- chrome
 ---
 
 ### 动手之前的有用信息 

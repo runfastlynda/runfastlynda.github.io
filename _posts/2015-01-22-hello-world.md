@@ -2,7 +2,7 @@
 layout: post
 title: "Hello World"
 categories:
-- 博客
+- markdown
 ---
 
 #你好，世界!

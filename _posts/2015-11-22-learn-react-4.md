@@ -2,7 +2,7 @@
 layout: post
 title: "React 学习笔记(4)"
 categories:
-- 博客
+- react
 ---
 
 ### 动画

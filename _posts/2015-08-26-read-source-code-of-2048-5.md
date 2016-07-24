@@ -2,8 +2,9 @@
 layout: post
 title: "2048源代码解读（5）"
 categories:
-- 博客
+- sourcecode
 ---
+
 2048源码解读系列最后一篇，我们来解读最重要的 GameManager 部分。
 
 GameManager函数有如下结构：![](http://7xjufd.dl1.z0.glb.clouddn.com/blog5.1.png)

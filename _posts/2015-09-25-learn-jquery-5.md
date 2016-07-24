@@ -3,6 +3,7 @@ layout: post
 title:  "jQuery基础教程-学习笔记（5）"
 date:   2015-09-25 18:28:16
 categories:
+- jquery
 ---
 
 ### 通过AJAX发送数据

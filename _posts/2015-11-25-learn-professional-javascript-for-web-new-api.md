@@ -2,7 +2,7 @@
 layout: post
 title: "JavaScript高级程序设计学习笔记：新兴的API"
 categories:
-- 博客
+- javascript
 ---
 
 ### requestAnimationFrame()

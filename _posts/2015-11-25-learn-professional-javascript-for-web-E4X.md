@@ -2,7 +2,7 @@
 layout: post
 title: "JavaScript高级程序设计学习笔记：E4X"
 categories:
-- 博客
+- javascript
 ---
 E4X本身不是一门语言，它只是ECMAScript语言的可选扩展。就其本身而言，E4X为处理XML定义了新的语法，也定义了特定于XML的对象。
 

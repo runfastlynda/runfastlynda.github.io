@@ -2,7 +2,7 @@
 layout: post
 title: "如何用sketch制作一个水滴图标"
 categories:
-- 博客
+- sketch
 ---
 
 如何用sketch制作一个水滴图标呢？效果图如下：
