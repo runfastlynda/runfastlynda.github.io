@@ -1,0 +1,197 @@
+@charset "UTF-8";
+@font-face {
+  font-family: "iconfont";
+  src: url("../font/iconfont.eot?t=1469446605");
+  /* IE9*/
+  src: url("../font/iconfont.eot?t=1469446605#iefix") format("embedded-opentype"), url("../font/iconfont.woff?t=1469446605") format("woff"), url("../font/iconfont.ttf?t=1469446605") format("truetype"), url("../font/iconfont.svg?t=1469446605#iconfont") format("svg");
+  /* iOS 4.1- */ }
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 18px;
+  font-style: normal;
+  color: #444;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.2px;
+  -moz-osx-font-smoothing: grayscale; }
+
+.clearfix:before,
+.clearfix:after {
+  content: " ";
+  /* 1 */
+  display: table;
+  /* 2 */ }
+
+.clearfix:after {
+  clear: both; }
+
+.clearfix {
+  *zoom: 1; }
+
+* {
+  box-sizing: border-box; }
+
+body {
+  background-color: #fafafa;
+  font-color: #555;
+  font-family: "Lantinghei SC", "Open Sans", Arial, "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", "STHeiti", "WenQuanYi Micro Hei", SimSun, sans-serif; }
+
+a {
+  text-decoration: none;
+  cursor: auto;
+  font-weight: normal;
+  color: black; }
+
+a:hover {
+  color: black;
+  text-decoration: underline; }
+
+a:visited {
+  color: black; }
+
+ul {
+  padding-left: 0;
+  margin: 9px 0;
+  list-style: none; }
+
+div {
+  background-color: #fff; }
+
+strong {
+  font-weight: 600; }
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px; }
+
+h4 {
+  font-weight: 600; }
+
+header {
+  margin-bottom: 10px; }
+  header .introduction {
+    height: 155px;
+    text-align: center; }
+    header .introduction p {
+      color: #444;
+      font-size: 1.2em;
+      margin-bottom: 0;
+      margin-top: -40px;
+      line-height: 62px;
+      letter-spacing: 1px; }
+  header h2 {
+    margin: 0 0 10px 0;
+    font-size: 2.5em;
+    font-weight: 200;
+    line-height: 110px; }
+  header .contact {
+    width: 368px;
+    margin: 43.2px auto 0;
+    position: relative;
+    left: -66px;
+    height: 120px; }
+    header .contact img {
+      width: 120px;
+      float: right;
+      display: block; }
+    header .contact ul {
+      float: right;
+      text-align: right;
+      padding-left: 15px; }
+    header .contact li {
+      display: block; }
+    header .contact i {
+      margin-left: 4px; }
+
+section {
+  border-top: 2px solid #eee; }
+  section h3 {
+    font-weight: normal; }
+  section h4 span {
+    font-weight: normal;
+    margin-left: 8px; }
+  section h4 a {
+    margin-left: 4px; }
+  section div {
+    overflow: hidden; }
+  section p {
+    line-height: 1.8; }
+
+@media screen and (max-width: 500px) {
+  strong {
+    font-weight: 700; }
+  h4 {
+    font-weight: 700; }
+  .iconfont {
+    font-size: 16px;
+    color: #333; }
+  header {
+    margin-bottom: 40px; }
+    header .introduction {
+      margin-bottom: -20px; }
+      header .introduction p {
+        font-size: 1em; }
+    header .contact {
+      width: 244px;
+      float: none;
+      position: relative;
+      left: 0px;
+      margin: 0 auto 48px; }
+      header .contact img {
+        width: 132px;
+        margin: 0 auto;
+        float: none;
+        display: block; }
+      header .contact ul {
+        float: none;
+        text-align: center;
+        padding-left: 0px; }
+      header .contact i {
+        display: none; }
+      header .contact li {
+        margin-bottom: 3px; }
+      header .contact li:nth-child(1) {
+        display: none; }
+      header .contact li:nth-child(2) {
+        display: none; }
+      header .contact li:nth-child(3) {
+        display: none; } }
+
+@media screen and (min-width: 800px) {
+  .container {
+    width: 800px;
+    margin: 20px auto;
+    padding: 40px; }
+  header .introduction {
+    float: left;
+    width: 45%;
+    text-align: left; }
+    header .introduction p {
+      margin-left: 58px; }
+  header h2 {
+    padding-left: 50px; }
+  header .contact {
+    float: right;
+    width: 55%;
+    margin: auto;
+    left: 0px; }
+    header .contact img {
+      width: 145px;
+      float: right;
+      display: block; }
+    header .contact ul {
+      float: right;
+      padding-right: 10px; }
+    header .contact li {
+      margin-bottom: 5px;
+      text-align: right; }
+  section {
+    padding: 20px 0px; }
+    section h3 {
+      text-align: right;
+      width: 15%;
+      margin-right: 10%;
+      float: left; }
+    section .content {
+      width: 75%; } }
