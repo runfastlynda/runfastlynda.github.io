@@ -1,0 +1,125 @@
+:root {
+  font-size: calc(1vw + 1vh + .25vmin);
+}
+
+body {
+  background: #fffde8;
+}
+
+.rings {
+  list-style: none;
+  left: 50%;
+  margin: -9.75em -20.5em;
+  position: absolute;
+  top: 50%;
+}
+.rings li {
+  position: absolute;
+  margin-top: 1em;
+  margin-left: 1em;
+  width: 12em;
+  height: 12em;
+  font-size: 1em;
+}
+.rings li:before, .rings li:after {
+  position: absolute;
+  border-radius: 6em;
+}
+.rings li:before {
+  display: block;
+  content: "";
+}
+
+.rings li:after {
+  border: 1.15em solid #000;
+  bottom: 0;
+  content: "";
+  display: block;
+  right: -0.1em;
+  left: -0.1em;
+  top: -0.1em;
+}
+.rings .blue {
+  left: 0;
+  top: 0;
+  z-index: 10;
+}
+.rings .yellow {
+  left: 6.8em;
+  top: 5.7em;
+  z-index: 20;
+}
+.rings .black {
+  left: 13.6em;
+  top: 0;
+  z-index: 21;
+}
+.rings .green {
+  left: 20.4em;
+  top: 5.7em;
+  z-index: 20;
+}
+.rings .red {
+  left: 27.2em;
+  top: 0;
+  z-index: 10;
+}
+.rings .black:after {
+  border-color: #000;
+}
+.rings .blue:after {
+  border-color: #0085c7;
+}
+.rings .green:after {
+  border-color: #009f3d;
+}
+.rings .red:after {
+  border-color: #df0024;
+}
+.rings .yellow:after {
+  border-color: #f4c300;
+}
+.rings .blue.chain {
+  border-bottom-color: transparent;
+  border-left-color: transparent;
+  border-top-color: transparent;
+  z-index: 24;
+}
+.rings .blue.chain:before, .rings .blue.chain:after {
+  border-bottom-color: transparent;
+  border-left-color: transparent;
+  border-top-color: transparent;
+}
+.rings .green.chain {
+  border-bottom-color: transparent;
+  border-top-color: transparent;
+  border-right-color: transparent;
+  z-index: 23;
+}
+.rings .green.chain:before, .rings .green.chain:after {
+  border-bottom-color: transparent;
+  border-top-color: transparent;
+  border-right-color: transparent;
+}
+.rings .red.chain {
+  border-left-color: transparent;
+  border-top-color: transparent;
+  border-right-color: transparent;
+  z-index: 23;
+}
+.rings .red.chain:before, .rings .red.chain:after {
+  border-left-color: transparent;
+  border-top-color: transparent;
+  border-right-color: transparent;
+}
+.rings .yellow.chain {
+  border-bottom-color: transparent;
+  border-right-color: transparent;
+  border-left-color: transparent;
+  z-index: 23;
+}
+.rings .yellow.chain:before, .rings .yellow.chain:after {
+  border-bottom-color: transparent;
+  border-right-color: transparent;
+  border-left-color: transparent;
+}
