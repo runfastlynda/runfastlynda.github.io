@@ -1,2 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[4],{JQ6S:function(n,t,c){"use strict";c.r(t),c.d(t,"default",(function(){return o}));c("q1tI");var u=c("qKvR");function o(){return Object(u.c)("div",null,"foo bar",Object(u.c)("br",null))}}}]);
-//# sourceMappingURL=component---src-pages-book-js-55fbfb85ba2b56fde3f5.js.map

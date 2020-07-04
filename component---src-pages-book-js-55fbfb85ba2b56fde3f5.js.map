@@ -1,1 +1,0 @@
-{"version":3,"sources":["webpack:///./src/pages/book.js"],"names":["Bio"],"mappings":"2FAAA,yEAEe,SAASA,IACtB,OACE,iCAEE","file":"component---src-pages-book-js-55fbfb85ba2b56fde3f5.js","sourcesContent":["import React from \"react\"\n\nexport default function Bio() {\n  return (\n    <div>\n      foo bar\n      <br />\n    </div>\n  )\n}\n"],"sourceRoot":""}
