@@ -1,0 +1,45 @@
+---
+date: 2015-11-22
+title: "React 学习笔记(4)"
+categories:
+- react
+---
+
+### 动画
+
+React的TransitionGroup 插件配合CSS3可以让我们在项目中整合动画效果的工作变得易如反掌。CSS渐变组会在合适的渲染及重渲染时间点有策略地添加和移除元素的class，以此来简化将CSS动画应用于渐变的过程。这意味着唯一需要你完成的任务就是给这些class写明合适的样式。
+
+间隔渲染以牺牲性能为代价提供了更多的扩展性和可控性。这种方法需要更多次的渲染，但同时也允许你为CSS之外的内容（比如滚动条位置）添加动画。
+
+##### CSS渐变组
+
+```javascript
+<ReactCSSTransitionGroup transitionName='question'>
+	{question}
+</ReactCSSTransitionGroup>
+```
+ReactCSSTransitionGroup是一款插件，它在文件最顶部通过var ReactCSSTransitionGroup = React.addons.ReactCSSTransitionGroup;语句被引入。
+
+它会自动在合适的时候处理组件的重渲染，同时根据当前的渐变状态调整渐变组的class 以便实现组件样式的改变。
+
+按照惯例，为元素添加transitionName=‘question’意味着给它添加4个class：question-enter、question-enter-active、question-leave、question-leave-active。当子组件进入或退出ReactCSSTransitionGroup会自动添加或移除这些class。
+
+##### 渐变生命周期
+
+question-enter与question-enter-active的区别在于，question-enter这个class是组件被添加到渐变组后即刻添加上的，而question-enter-active则是在下一轮渲染时添加的。
+
+##### 使用渐变组的隐患
+
+第一，渐变组会延迟子组件的移除直到动画完成。这意味着如果你把一个列表的组件包裹进一个ReactCSSTransitionGroup中，却没有为transitionName属性指定的class明确任何CSS，这些组件将永远无法被移除——甚至当你尝试不再渲染它们时也不可以。
+
+第二，渐变组的每一个子组件都必须设置一个独一无二的key属性。渐变组使用这个属性来判断组件究竟是进入还是退出，因此如果没有设置key属性动画可能无法执行，同时组件也会变得无法移除。
+
+注意：即使渐变组只有一个子元素，它也需要设置一个key属性。
+
+##### 间隔渲染
+
+使用CSS3动画能够获得巨大的性能提升并拥有简洁的代码，但他们并不总是解决问题的正确工具，有时你必须为较老的不支持CSS3的浏览器做兼容，还有时你想为CSS属性之外的东西添加动画，比如滚动条位置或Canvas动画。这时，间接渲染能满足我们的要求，但它会带来一定的性能损耗。
+
+间接渲染的基本思想是周期性的触发组件的状态更新，以明确当前处于整个动画时间中的什么阶段。通过在组件的render方法中加入这个状态值，组件能在每次状态更新触发的重新渲染中正确表示当前的动画阶段。
+
+这种方法涉及多次重渲染，所以通常最好和requestAnimationFrame一起使用以避免不必要的渲染。不过，在其不支持的情况下，使用setTimeout就是唯一的选择了。

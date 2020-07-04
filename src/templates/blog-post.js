@@ -6,6 +6,10 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { rhythm, scale } from "../utils/typography"
 
+import Utterances from '../components/utterances'
+
+import 'prismjs/themes/prism-TWILIGHT.css'
+
 const BlogPostTemplate = ({ data, pageContext, location }) => {
   const post = data.markdownRemark
   const siteTitle = data.site.siteMetadata.title
@@ -15,7 +19,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
     <Layout location={location} title={siteTitle}>
       <SEO
         title={post.frontmatter.title}
-        description={post.frontmatter.description || post.excerpt}
+        // description={post.frontmatter.description || post.excerpt}
       />
       <article>
         <header>
@@ -74,6 +78,8 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
           </li>
         </ul>
       </nav>
+      
+      <Utterances slug={post.fields.slug} />
     </Layout>
   )
 }
@@ -94,7 +100,9 @@ export const pageQuery = graphql`
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")
-        description
+      }
+      fields {
+        slug
       }
     }
   }

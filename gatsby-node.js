@@ -1,5 +1,6 @@
 const path = require(`path`)
 const { createFilePath } = require(`gatsby-source-filesystem`)
+const _ = require("lodash")
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
@@ -19,8 +20,14 @@ exports.createPages = async ({ graphql, actions }) => {
               }
               frontmatter {
                 title
+                tags
               }
             }
+          }
+        }
+        tagsGroup: allMarkdownRemark(limit: 2000) {
+          group(field: frontmatter___tags) {
+            fieldValue
           }
         }
       }
@@ -46,6 +53,47 @@ exports.createPages = async ({ graphql, actions }) => {
         previous,
         next,
       },
+    })
+  })
+
+  const postsPerPage = 20
+  const numPages = Math.ceil(posts.length / postsPerPage)
+
+  Array.from({ length: numPages }).forEach((_, i) => {
+    createPage({
+      path: i === 0 ? `/` : `/${i + 1}`,
+      component: path.resolve('./src/templates/blog-list.js'),
+      context: {
+        limit: postsPerPage,
+        skip: i * postsPerPage,
+        numPages,
+        currentPage: i + 1,
+      },
+    })
+  })
+
+  let tags = result.data.tagsGroup.group
+  // 去重
+  tags = _.uniq(tags)
+
+  tags.forEach(tag => {
+    const total = tag.totalCount
+    const numPages = Math.ceil(total / postsPerPage)
+    Array.from({ length: numPages }).forEach((_, i) => {
+      createPage({
+          path:
+          i === 0
+              ? `/tag/${tag.fieldValue}`
+              : `/tag/${tag.fieldValue}/${i + 1}`,
+          component: path.resolve('./src/templates/blog-tags.js'),
+          context: {
+          tag: tag.fieldValue,
+          currentPage: i + 1,
+          totalPage: numPages,
+          limit: postsPerPage,
+          skip: i * postsPerPage,
+          },
+      })
     })
   })
 }
