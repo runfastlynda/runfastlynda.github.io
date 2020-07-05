@@ -3,20 +3,20 @@
 <div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">–save
 –save-dev</code></pre></div>
 <p>这两种命令， <code class="language-text">--save</code> 会把对应的模块名添加到dependencies键值数组里，而使用 <code class="language-text">--save-dev</code> 会把对应的模块名添加到devDependencies键值数组里。例如：在我<a href="https://github.com/lazybios/emoji-menu">emoji-menu</a>项目的package中写的：</p>
-<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">{
-  &quot;name&quot;: &quot;emoji-menu&quot;,
-  &quot;version&quot;: &quot;0.0.1&quot;,
-  &quot;dependencies&quot;: {
-    &quot;clipboard&quot;: &quot;^1.5.10&quot;,
-    &quot;electron-prebuilt&quot;: &quot;^1.2.0&quot;,
-    &quot;menubar&quot;: &quot;^4.1.1&quot;,
-    &quot;nedb&quot;: &quot;^1.8.0&quot;
-  },
-  &quot;devDependencies&quot;: {
-    &quot;cz-conventional-changelog&quot;: &quot;^1.1.6&quot;,
-    &quot;electron-packager&quot;: &quot;^7.0.3&quot;
-  }
-}</code></pre></div>
+<div class="gatsby-highlight" data-language="json"><pre class="language-json"><code class="language-json"><span class="token punctuation">{</span>
+  <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"emoji-menu"</span><span class="token punctuation">,</span>
+  <span class="token property">"version"</span><span class="token operator">:</span> <span class="token string">"0.0.1"</span><span class="token punctuation">,</span>
+  <span class="token property">"dependencies"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">"clipboard"</span><span class="token operator">:</span> <span class="token string">"^1.5.10"</span><span class="token punctuation">,</span>
+    <span class="token property">"electron-prebuilt"</span><span class="token operator">:</span> <span class="token string">"^1.2.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"menubar"</span><span class="token operator">:</span> <span class="token string">"^4.1.1"</span><span class="token punctuation">,</span>
+    <span class="token property">"nedb"</span><span class="token operator">:</span> <span class="token string">"^1.8.0"</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token property">"devDependencies"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">"cz-conventional-changelog"</span><span class="token operator">:</span> <span class="token string">"^1.1.6"</span><span class="token punctuation">,</span>
+    <span class="token property">"electron-packager"</span><span class="token operator">:</span> <span class="token string">"^7.0.3"</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre></div>
 <p>那这二者的区别到底是什么？devDependencies 下列出的模块，是我们开发时用的，比如 gulp，它们不会被部署到生产环境。dependencies 下的模块，则是我们生产环境中需要的依赖。</p></section><hr style="margin-bottom:1.75rem"/><footer><div style="display:flex;margin-bottom:4.375rem"><div class=" gatsby-image-wrapper" style="position:relative;overflow:hidden;display:inline-block;width:50px;height:50px;margin-right:0.875rem;margin-bottom:0;min-width:50px;border-radius:100%"><img aria-hidden="true" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAIAAAAC64paAAAACXBIWXMAAAsSAAALEgHS3X78AAACbklEQVQ4y41U/09SURT3b6s2m1ut1tSWhkmNaunSluRqNrRmrGJPHYw0nGLoREBFBB6hiGKvNwTDRQqKFH0RxAfyRYT3uO/RBRvZm4Tnl7t77/mcz+fcc86tYEpYDhpcaJopbRWsPQ3d6TwyHIsTqdRRhNOCjzhTB4dNHdLrD3vd3iDc0iX4/4IhBQXA9n6U2Iu/eTbLrRoY6plZsboIX5DJlWOG4SGJ0DzXcK+Xd3Wk6ppY0q3ewfCwfYEuIZ4NFqNoTe3zussD57qFPcKRHc100m3NZ36S8n9yBgAGoH3eYNtdxdnzrUibLKRRMt+c9GnAxQdbxTHOlceci3xMY8gxgCkru6AcQGRgc63rPu8FMqzWiJz4MjzJkunyYACy0FU32se91CzvG/o0h4yPaw1a2xKqAwydKyv7ILH/TowI+P0dza2Sl68xm8Nmxf3ffxSq/Z86Q3lZYJhQ6MfHlqzYrZv1ZyovzBoNZCoOACgvG+L9Xg+Tpdwb69U3ajjN9bWN1dgwkqc9qVFYD5Yv9cLyR8lb+SsBv6ezZfTpHTW3Ui8VATJT6HO6RJMUmIlIxPB+XquamBa2hyd7t/RjY4IHvLpasw2Htyz97A7bi0SVCoV5UoUq+nNOrevLxodhxDSEDJoXGYpKp9PH54ydcyKRXLRYUNTU9eRRaM2EOV0WhWxeLZeolGaNKkOSx4esokgLJWUyZCwW187oNTpjS1t75+2GgMdjx/EV19qgESXTKdZ4/gFTFHWQPCQisd1dgohEoYf/a6CJ0xj0b09NaUVSmcPjK5NzsdqQ/+ev4Lp3KxgK2x2rn93rJ34pvwGLaizwcjOOqgAAAABJRU5ErkJggg==" alt="lynda" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:1;transition-delay:500ms;border-radius:50%"/><noscript><picture><source srcset="/static/e7c4f176cd2cecb7c4a2239a421caffd/8ba1e/profile-pic.png 1x,
 /static/e7c4f176cd2cecb7c4a2239a421caffd/f937a/profile-pic.png 1.5x,
 /static/e7c4f176cd2cecb7c4a2239a421caffd/71eb7/profile-pic.png 2x" /><img loading="lazy" width="50" height="50" srcset="/static/e7c4f176cd2cecb7c4a2239a421caffd/8ba1e/profile-pic.png 1x,
