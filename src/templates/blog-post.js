@@ -8,7 +8,7 @@ import { rhythm, scale } from "../utils/typography"
 
 import Utterances from '../components/utterances'
 
-import 'prismjs/themes/prism-TWILIGHT.css'
+import 'prismjs/themes/prism-coy.css'
 
 const BlogPostTemplate = ({ data, pageContext, location }) => {
   const post = data.markdownRemark
@@ -78,7 +78,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
           </li>
         </ul>
       </nav>
-      
+
       <Utterances slug={post.fields.slug} />
     </Layout>
   )
