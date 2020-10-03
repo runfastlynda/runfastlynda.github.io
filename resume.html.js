@@ -5,8 +5,8 @@ module.exports = `<!DOCTYPE html>
         <meta http-equiv="x-ua-compatible"="ie=edge" />
         <title>Runfastlynda's Resume</title>
         <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1.0,  maximum-scale=1.0,minimum-scale=1.0">
-        <link rel="stylesheet" href="./resume.css">
-        <link href="./tailwind.min.css" rel="stylesheet"></head>
+        <link rel="stylesheet" href="/resume.css">
+        <link href="/tailwind.min.css" rel="stylesheet"></head>
     <style>body { font-family: "Lantinghei SC", "Open Sans", Arial, "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", "STHeiti", "WenQuanYi Micro Hei", SimSun, sans-serif; background-color: #fafafa; }</style>
     
     <body class="text-base text-gray-900 leading-relaxed">
